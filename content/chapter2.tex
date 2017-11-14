@@ -1,8 +1,16 @@
 % !TeX spellcheck = en_US
-
+ 
 \chapter{General Stack}
 \label{chap:ch2}
 \section{Collector}
+To get Data in a centralized spot a tool is needed to collect the data were its generated and transport it to the Server or provide an Interface for the Server to collect the data.\\
+Tools for this Purpose a we call Collectors. Were are Collector for every Monitoring Purpose. Its very common that a Collector provides a general interface like an XML or JSON data or can be adapted to variable Databases to get a wide spectrum of Use-Cases. The monitored metrics is dependent on the environment and the collector also has to use over tools that provides system data to get these type of metrics. In general the data that is collected can be split up in System data and Application data. System data are all physical values like CPU load, Ram and Hard Disc Drive usage.These will be providet by cAdvisor (\ref{cadvisor}) in the case of Kubernetes. Application data is dependent on the application. In the Case of monitoring Kubernetes normally the number of jobs/pods or the number of connection per time will be monitored. These and over data will be Providet by the Api-server(\ref{apiserver}) of Kubernetes.
+\subsection{cAdvisor}
+\label{cadvisor}
+Container Advisor is tool for collection,Processing and Exporting Data of Containers. It is native Designed for Docker but can be applied to ever other container. All information about the Container is Accessible over a Rest api that gives back a JSON files with all data. A copy of cAdvisor is Deployed within every Kubernetes Pod, so every APM tool can get the metrics of the system.
+\subsection{Api-Server}
+\label{apiserver} 
+Api-Server is a tool that provides a REST interface and is a front end for the hole Kubernetes Cluster. Over the Api-Server a user is able to interact with all Components of the cluster  
 
 \section{Database}
 
