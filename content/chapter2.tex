@@ -17,8 +17,29 @@ Api-Server is a tool that provides a REST interface and is a front end for the h
 \end{itemize} 
 
 \section{Database}
+The Databases for a APM are usual time-series-databases. This special kind of database, saves the data by a time stamp or a timesequence.
+Databases can offer two types of data providing methods. Most of the time the database provides a well defined interface which normals provides a authentication method to insert data into the database. Every of these Snapshot than gets a timestamp.\\
+The over method is that the Database preforms a get operation onto a interface provided by the Collector  
+This sorted data can be analyzed to check if there are any anomalies, which were unknown or have changed. This anomalies are often time-dependent. E.g. at 15 pm. are 50 more people online than at 10 am.
+
 
 \section{Visualization}
+The Visualization Tools are used to display the data stored in the databases in a nice and organized way. This is realized with plain text or by graphs. Graphs have the big advantage to be able to display the data changes over time and can very easily illustrate spikes in the data sets.Furthermore Graphs can present data in more than one way which makes it easier for humans to detect abnormal data spikes.\\
+\\ 
+Usually all this information can be accessed via a web interface as this also gives a nice option for logins and distribution of permissions. This is especially useful when the data is very sensitive.
+Often these tools also implement easy to use Interfaces for Alerting tools, to set conditions for specific alerts, which can save a lot of time.
+
+\subsection{Graphs}
+As previously mentioned, the data we collected from the cluster needs to be written out of the Database and displayed in a nice and readable fashion. Thus most visualization tools use graphs to display the collected data. 
+Using graphs not only makes the data easy to read, but it also adds the option to scale the data to our needs and preferences. This can be very useful when looking for trends in a bigger time range.\\
+It also gives the option of color coding the data, which can be useful to either see dangerous values more quickly, or simply render multiple data streams in one graph to compare them or to see them im comparison too the hole system.
+\subsection{Permission Management}
+Most Visualization Tools have a web interface in which all the data is displayed. To make sure only authorized people can view the data, these tools usually implement a few permission management methods. 
+These can be ranging from simple login permissions to viewing permissions of specific data streams. Some tools allow for complete customization of the permission settings, while others offer a set of permission templates. The most popular method of authorization seems to be LDAP, as this can be used for simple and complex permission schemes alike. 
+\subsubsection{LDAP}
+Written-out Lightweight Directory Access Protocol is a Network-protocol on a client-server basis. LDAP describes the communication between the client and the LDAP Directory. The data-structure of of LDAP is the so called Directory Information Tree which is organized by one suffix(root) and nodes.  
+ 
+
 
 \section{Alerting}
 
