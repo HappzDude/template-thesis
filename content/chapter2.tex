@@ -10,7 +10,11 @@ Tools for this Purpose a we call Collectors. Were are Collector for every Monito
 Container Advisor is tool for collection,Processing and Exporting Data of Containers. It is native Designed for Docker but can be applied to ever other container. All information about the Container is Accessible over a Rest api that gives back a JSON files with all data. A copy of cAdvisor is Deployed within every Kubernetes Pod, so every APM tool can get the metrics of the system.
 \subsection{Api-Server}
 \label{apiserver} 
-Api-Server is a tool that provides a REST interface and is a front end for the hole Kubernetes Cluster. Over the Api-Server a user is able to interact with all Components of the cluster  
+Api-Server is a tool that provides a REST interface and is a front end for the hole Kubernetes Cluster. Over the Api-Server a user is able to interact with all Components of the cluster. The Api-Server also collects metrics witch are listed below.\\
+\begin{itemize}
+	\item Aggreation Controler Queue: Used for Parallel Processing as an Middelware
+	\item Registration Controller:  
+\end{itemize} 
 
 \section{Database}
 
