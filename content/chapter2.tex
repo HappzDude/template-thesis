@@ -17,13 +17,17 @@ Api-Server is a tool that provides a REST interface and is a front end for the h
 \end{itemize} 
 
 \section{Database}
-The Databases for a APM are usual time-series-databases. This special kind of database, saves the data by a time stamp or a timesequence.
+The Databases for a APM are usual time-series based (\ref{TS-Database}). As every other database its used to make data persistent and perform request over multiple entries to get new informations about critical values and value changes over time.
 Databases can offer two types of data providing methods. Most of the time the database provides a well defined interface which normals provides a authentication method to insert data into the database. Every of these Snapshot than gets a timestamp.\\
-The over method is that the Database preforms a get operation onto a interface provided by the Collector  
-This sorted data can be analyzed to check if there are any anomalies, which were unknown or have changed. This anomalies are often time-dependent. E.g. at 15 pm. are 50 more people online than at 10 am.
+The over method is that the database preforms a get operation onto a interface provided by the Collector. This type of data-collection is better for static system or must be 
 
+\subsection{Time-Series-Database}
+\label{TS-Database}
+This is a special kind of database developed for saving time series data. This data consists of arrays which are indexed by a time stamp. By the term Time-Series also a time ranges cloud be used (as a primary key). These types of Databases  can create, enumerate, update, delete and analyze time-series-data.
+Often they also allow you to merge multiple time-series together and make one.
+Like each other database, time-series-databases can also filter the data which is normally order ascending by time.
 
-\section{Visualization}
+\section{Visualization} 
 The Visualization Tools are used to display the data stored in the databases in a nice and organized way. This is realized with plain text or by graphs. Graphs have the big advantage to be able to display the data changes over time and can very easily illustrate spikes in the data sets.Furthermore Graphs can present data in more than one way which makes it easier for humans to detect abnormal data spikes.\\
 \\ 
 Usually all this information can be accessed via a web interface as this also gives a nice option for logins and distribution of permissions. This is especially useful when the data is very sensitive.
