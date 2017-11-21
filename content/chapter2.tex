@@ -46,6 +46,11 @@ Written-out Lightweight Directory Access Protocol is a Network-protocol on a cli
 
 
 \section{Alerting}
+To inform the developer about the system, a tool is needed which is able to sends warnings about predefined system states.
+The alerting tool gets one or more error codes from the controller that is normally implemented into the database or visualization tool. Some tools combine With this codes the altering tool sends a warning or error message to all people involved. Most of the tools can send over multiple platforms. The most common are: E-Mail, SMS, telegram and slack. Often tools over man then the mentioned interface and provide a api to integrate other alerting types.\\
+\\
+Often the developers don’t want to get just one alert with one message, so some of the alerting tool have the possibility to sort the alerts into groups. With this feature its possible to group cascading events that are triggered by failure. In some cases tools also supply a option to divide all alerts into critical alerts and warnings which can help the user to select the important massages.  
+
 
 %Hier wird der Hauptteil stehen. Falls mehrere Kapitel gewünscht, entweder mehrmals \texttt{\textbackslash{}chapter} benutzen oder pro Kapitel eine eigene Datei anlegen und \texttt{ausarbeitung.tex} anpassen.
 
