@@ -17,7 +17,8 @@ A Quick Pro/Con of the tool and in which environment its best to use
 \subsection{Searchlight (Icinga)}
 \label{searchlight}
 As in the Section Icinga \ref{Icinga} described, we were not able to find a pure installation of Icinga for a cluster so we tried to install Searchlight as a backup plan.
-Searchlight is a tool from the AppsCode Inc. (\url{https://appscode.com/},18.12.2017) which is a company located in San Leandro Californian.
+Searchlight is a tool from the AppsCode Inc. (\url{https://appscode.com/},18.12.2017) which is a company located in San Leandro Californian. 
+Searchlight is as many other monitoring tools written in the Programming language of Go.
 \\
 When first trying this over the yaml File we resived errors over the Kubernetes Cluster. There it says the tools is not able to bind the Port 8443. We could not figure out wich Apllication is using the port but as we tried to install the app on a fresh cluster VM it turns out the yaml deployment is working fine.
 \subsubsection{Appearance}
@@ -25,7 +26,12 @@ When first trying this over the yaml File we resived errors over the Kubernetes 
 Icinga/Searchlight comes in a  discreet blue/withe coloring. On the Dashboard which represents the homepage of the application an overview of the implemented alerts is shown. The alerts will be Colored with Green/Yellow/Red for OK/Warning/Error, so its easy to see appearing problems. The rest of the option as History and Configurations is located at the sidebar. 
 \subsubsection{Performance}
 In our VM deployment the applications has allocated 160MB of RAM under Load. The Application it self is Running very smooth even on low Power Systems. As we deployed some alerts we noticed that it took about 30 seconds to validate the alert and get a first status from the system. After that pending status run Smoothly and even checks on a 30 seconds bases were no Problem for the System.
-
+\subsubsection{Interoperability}
+On the Github Page (\url{https://github.com/appscode/searchlight},20.12.2017) of the Program the developer claims to be able to send Notification over Email, SMS and Chat.
+In the Guide there is no explicit explanation what is meant by the term Chat but the tool is cable to send Notifications to Slack(\url{https://slack.com},03.01.2018) and Hipchat. Notification over Email can be without any third party Software send over SMTP. To send SMS a Service like Twilio(\url{https://www.twilio.com/},20.12.2017) is needed.
+On the page there is no advise that the tool is capable of interaction over an over interface then Notification. 
+\subsubsection{Conclusion}
+Searchlight is a light weighted  port of the famous monitoring tool Icinga. It runs well and has all Basic needed Features. On a deeper Look the Software revaled its weekneses. There are no advanced Possibilities to connect Searchlight with over Monitoring tool. Also there is no Graphical user interface for creating alerts, which makes it very difficult to set it up. As the tool is manly only developed and updated by 2 two people the support for new Version of Icinga and Kubernetes is limited. The fact that the company appcode has no direct correlation with Icinga is a nother counter-argument to the tool. In a nutshell the tool is good for small Kubernetes clusters that want to monitor only a few Basic metrics and have low resources. 
 
 
 
@@ -37,5 +43,7 @@ Graphite is mainly for storing and Graphing data and metrics, but brings also to
 
 \subsection{Icinga}
 \label{Icinga}
+Icinga is as ELK-Stack not a Monitoring tool. Its made for logging defined Request. The Adminestrator can decide which system to monitor an in what interval the data is pulled.
+Icinga it self only provides 3 system states instead of exact values. The states are OK/Warning and Error. The user decieds at which point they are triggered.\\
 As we tried to install Icinga as we found out that there was no direct support from Incinga for Kubernetes. As our Study only describes the actual state without trying to add somthing we decidet not to try an compile Icinga into Kuberntes on oure own. Later we found out there is a third party Software called searchlight \ref{searchlight}. Its provided by appscode on github.
  
