@@ -58,10 +58,15 @@ The alerting tool gets one or more error codes from the controller that is norma
 Often the developers don’t want to get just one alert with one message, so some of the alerting tool have the possibility to sort the alerts into groups. With this feature its possible to group cascading events that are triggered by failure. In some cases tools also supply a option to divide all alerts into critical alerts and warnings which can help the user to select the important massages.  
 
 \section{Monitoring enviroment}
-\subsection{Kubernetes}
+As many Monitoring tool are flexible to the environment we chose a specific setting for the tools to monitor there Cloud skills (Kubernetes). 
+\subsection{Docker}
+Docker is a Open-Source software that virtualize Operation Systems (OS) with the concept on containers. That means that the application an the OS is build in too one file an can be deployed out of that file with the before defined settings.
 
+\subsection{Kubernetes}
+Kubernetes is a Open-Source system that provides a platform for container deployment and management. It strengthen are in the field of scaling and maintaining the deployed containers. Kubernetes can run on different host on the same time. The Kubernetes Master connect all the hosts together, to form one cluster out of them. The master also works as an interface for other systems to connect to the cluster. From the outside of the cluster its not visible on with node/nodes the application is running. This is realized by a load balancer which is also running on the Kubernetes master. Every Container in the cluster also runs a copy of cAdvisor (\ref{cadvisor}) which is very important for APM, because it collects data from the system like Cpu and Ram and provides them over an interface.
 \subsection{GO}
-Go is a Programming Language that is as Kubernetes designed, implemented and updated by the Google Inc.. The basic idea about the language is to simplyfy the syntax compared to c and c++ by preserving it network capability and extend them in the field of Cloud technologies.
+
+Go is a Programming Language that is as Kubernetes designed, implemented and updated by the Google Inc.. The basic idea about the language is to simplify the syntax compared to c and c++ by preserving it network capability and extend them in the field of Cloud technologies. The language it self is Capable of all modern concept such as Object Orientation and typification and parallelization. It was developed as an Open-Source Software in was first released in 2009.  
 
 %Hier wird der Hauptteil stehen. Falls mehrere Kapitel gewünscht, entweder mehrmals \texttt{\textbackslash{}chapter} benutzen oder pro Kapitel eine eigene Datei anlegen und \texttt{ausarbeitung.tex} anpassen.
 
