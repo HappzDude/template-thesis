@@ -20,7 +20,7 @@ As in the Section Icinga \ref{Icinga} described, we were not able to find a pure
 Searchlight is a tool from the AppsCode Inc. (\url{https://appscode.com/},18.12.2017) which is a company located in San Leandro Californian. 
 Searchlight is as many other monitoring tools written in the Programming language of Go.
 \\
-When first trying this over the yaml File we resived errors over the Kubernetes Cluster. There it says the tools is not able to bind the Port 8443. We could not figure out wich Apllication is using the port but as we tried to install the app on a fresh cluster VM it turns out the yaml deployment is working fine.
+When first trying this over the yaml File we resived errors over the Kubernetes Cluster. There it says the tools is not able to bind the Port 8443. We could not figure out which Application is using the port but as we tried to install the app on a fresh cluster VM it turns out the yaml deployment is working fine.
 \subsubsection{Appearance}
 %\includegraphics[width=1\linewidth]{Bilder/Searchlight_Icinga}\\
 Icinga/Searchlight comes in a  discreet blue/withe coloring. On the Dashboard which represents the homepage of the application an overview of the implemented alerts is shown. The alerts will be Colored with Green/Yellow/Red for OK/Warning/Error, so its easy to see appearing problems. The rest of the option as History and Configurations is located at the sidebar. 
@@ -57,9 +57,9 @@ Zabbix come with a withe and blue web interface with some Red accents. It implem
 \subsubsection{Performance}
 The general Performance of Zabbix is very good. The three parts in hole take up to 1GB of ram of the System and about 0.5 \% of the Processor load. The Minimum Requirements for Zabbix are specified with Pentium 2 of 350Mhz and 256MB of Ram \cite{Marik2014}.
 \subsubsection{Interoperability}
-Which tools are listed to work with the tool/Which tools are test to work with the tool
+Zabbix provides a different API to connect to other entities. The web interface  provide a PHP script that accepts querys. Grafana itself has a extra plug in which is connectible to Zabbix and show a optimized dashboard with all relevant informations. The tool is also capable of sending alerts over email, SMS, and jabber. Zabbix gives also the ability to create customscripts and to execute them in case of a alert. For example a cli script can be triggerd over ssh. 
 \subsubsection{Conclusion}
-A Quick Pro/Con of the tool and in which environment its best to use
+Zabbix is one of the best optimized and extend open-source solutions out there. The installation was by far the simplest and overarching of all the tested tools. The configuration is complex and the naming is not at ever position as aspect-ed. By default Zabbix scales over all of the available nodes but can be scaled up manual. The best way to use Zabbix is to pare it with a Grafana instance which provides the information from Zabbix tighter and with a better overview.
 
 \subsection{ELK Stack (logstash, elasticsearch, kibana)}
 \label{elk} % to refernce in the document
