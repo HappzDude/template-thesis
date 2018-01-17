@@ -77,12 +77,12 @@
 
 %Angaben in die PDF-Infos uebernehmen
 \makeatletter
-\hypersetup{
-            pdftitle={\doctitle}, %Titel der Arbeit
-            pdfauthor={\docauthor}, %Author
-            pdfkeywords={}, % CR-Klassifikation und ggf. weitere Stichworte
-            pdfsubject={}
-}
+%\hypersetup{
+ %           pdftitle={\doctitle}, %Titel der Arbeit
+ %           pdfauthor={\docauthor}, %Author
+ %           pdfkeywords={}, % CR-Klassifikation und ggf. weitere Stichworte
+ %           pdfsubject={}
+%}
 \makeatother
 
 
@@ -94,7 +94,9 @@
 
 %%%
 \usepackage{hyperref}
+%\usepackage[backend=bibtex,style=authoryear]{biblatex}
 
+%\addbibresource{bibliography.bib}
 \begin{document}
 
 %tex4ht-Konvertierung verschönern
