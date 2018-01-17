@@ -61,6 +61,21 @@ Which tools are listed to work with the tool/Which tools are test to work with t
 \subsubsection{Conclusion}
 A Quick Pro/Con of the tool and in which environment its best to use
 
+\subsection{ELK Stack (logstash, elasticsearch, kibana)}
+\label{elk} % to refernce in the document
+Elasticsearch is a tool developed by elastic.(\url{https://www.elastic.co/}, 10.01.2018) The company Elastic has many locations all around the world and seems to be very present for its customers.
+The ELK Stack is a logging tool which is developed java and divided up into three parts. First the logstash, the Collector of the stack. Second elasticsearch which queries the data given by the collector and last kibana the visualization tool of the stack.
+ELK Stack is easy deployable at the kubernetes cluster ?!?!?!. There is a complete ELK Stack kubernetes version provided by kubernetes. Just deploy each yaml and the tools are working. Hier fehlt noch die solution dass das tool richtig läuft und die erklöarung dazu.
+
+\subsubsection{Appearance}%Only for Visual tools
+Kibana is the only tool in the complete Stack with a user interface. It is accessible over the homepage of the application. The site is starting with a discover page, where all logs are listed in a time chronological order. The discover page also allows to filter these logs by key words. On the leftside is the sidebar with management, devtools, visualize, timeline, discoverer and dashboard. The dashboard tab, is for creating an own dashboard with the own preferences.
+\subsubsection{Performance}
+Quick analysis of the Performance (CPU/RAM usage during the test)
+\subsubsection{Interoperability}
+Elasticsearch also offers many a tool to include alerts. The tool can send any alerts which you can query with elasticsearch. On the official website, elastics mentioned they can send the notifications on E-Mail, PagerDuty, Slack and HipChat and it also offers an interface with an webhook-output to integrate any third-party-software for messaging. With this interface it might be easy to include sending alerts with SMS like earlier mentioned the program Twilio(\ref{searchlight}).
+\subsubsection{Conclusion}
+A Quick Pro/Con of the tool and in which environment its best to use
+
 \section{Failed Tools}%Ebenfalls nur ein arbeitstitel
 In the Process of Developing and Evaluating the APM we Discoverd a bunch of Tools that we were not able to install even that they clamed to be optimized to work on Kubernetes .
 In this Paragraph all the tools we wanted to include in our Report but doesn't are mentioned with a quick description of the Failure.
