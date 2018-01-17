@@ -37,7 +37,7 @@ Searchlight is a light weighted  port of the famous monitoring tool Icinga. It r
 \label{Toolname} % to refernce in the document
 The tool Prometeus is a open source Project and is hosted by the Cloud Native Computing Foundation. The project was originally built at Soundcloud. The tool can be installed on an os or on cluster like Kubernetes. Because the project is community driven, there is no official repository for Kubernetes, but with a little research we managed to find this repository (https://github.com/kayrus/prometheus-kubernetes,10.01.2018) which provides different deployments for Kubernetes.
 
-We managed to install Prometeus so that we were able to get metrics from the api server and can expose them over a restful interface. Over this interface it was possible to connect Prometeus to a application outside or inside the cluster like Grafana which is recommended for Prometeus. We were not able to install the Promteus own alertmanger on the cluster. Also we were not able to get metrics from the cluster-nodes because the Prometeusversion is not cable of requesting over https. 
+We managed to install Prometeus so that we were able to get metrics from the Api-server and can expose them over a restful interface. Over this interface it was possible to connect Prometeus to a application outside or inside the cluster like Grafana which is recommended for Prometeus. We were not able to install the Promteus own alertmanger on the cluster. Also we were not able to get metrics from the cluster-nodes because the Prometeusversion is not cable of requesting over https. 
 \subsubsection{Appearance}%Only for Visual tools
 Prometeus provides a web ui for user to see the collected data. It is designed in a very light wighted black an with combination with some blue ascents and only shows the necessary things. The interface has no function to save the set of graphs that is selected and no option to login to keep the data save or to divide the data by some user groups.   
 \subsubsection{Performance}
@@ -47,6 +47,18 @@ It's highly recommended that Prometeus is used with a Graphing and alerting tool
 \subsubsection{Conclusion}
 Prometeus is very good as a Collector for large Kubernetes Clusters with hundreds or thousands of nodes. What makes it so good is the With-Box monitoring approach, which provides way more metrics than a black-box monitoring. These fact can be used to detect problems in the system earlier and in much more detail so that the downtime can be reduced. On the over side Prometeus is not good for presenting this data and to throw alerts in case of failure.
 
+\subsection{Zabbix}
+\label{Toolname} % to refernce in the document
+% \url{https://dl.acm.org/citation.cfm?id=1883485} Linux Journal
+The tool Zabbix is an open-source tool and is developed by Zabbix LLC (Limited Liability Company) since 2005 (\url{https://www.zabbix.com},15.01.2018). Zabbix provides a all in one Solution with includes a Collector, Database, Visualization tool and a alert manager. Moreover there is a repo from monitoringartist (\url{https://github.com/monitoringartist/kubernetes-zabbix},15.01.2018) that provides a yaml which maps Zabbix client and server on a cluster structure.  
+\subsubsection{Appearance}%Only for Visual tools
+Zabbix come with a withe and blue web interface with some Red accents. It implements a tab system with subtabs to navigate through the interface. The naming itself is not as explaining as it could be.  
+\subsubsection{Performance}
+The general Performance of Zabbix is very good. The three parts in hole take up to 1GB of ram of the System and about 0.5 \% of the Processor load.
+\subsubsection{Interoperability}
+Which tools are listed to work with the tool/Which tools are test to work with the tool
+\subsubsection{Conclusion}
+A Quick Pro/Con of the tool and in which environment its best to use
 
 \section{Failed Tools}%Ebenfalls nur ein arbeitstitel
 In the Process of Developing and Evaluating the APM we Discoverd a bunch of Tools that we were not able to install even that they clamed to be optimized to work on Kubernetes .
