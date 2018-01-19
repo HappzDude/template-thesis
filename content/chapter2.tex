@@ -48,15 +48,6 @@ Most Visualization Tools have a web interface in which all the data is displayed
 These can be ranging from simple login permissions to viewing permissions of specific data streams. Some tools allow for complete customization of the permission settings, while others offer a set of permission templates. The most popular method of authorization seems to be LDAP, as this can be used for simple and complex permission schemes alike. 
 \subsubsection{LDAP}
 Written-out Lightweight Directory Access Protocol is a Network-protocol on a client-server basis. LDAP describes the communication between the client and the LDAP Directory. The data-structure of of LDAP is the so called Directory Information Tree which is organized by one suffix(root) and nodes.  
-\subsection{Sockshop}
-The sockshop is a demo-application for microservices, which can be used to test monitoring microservices. It takes up quite a lot of resources, considering it is a website with a small collection of scripts behind it. This makes the sockshop a very good demo-application, as it produces enough data to test monitoring applications, or simply show the ability of a cluster to handle such tasks.
-Sockshop features a slim but useful HTTP-based API which allows the system owner to retrieve or post data via his own scripts or microservices to complement the application or monitor data values from the inside.
-\subsubsection{Architecture}
-Sockshop is written in multiple languages. The Front-end is written in NodeJS to give the user a nice interface. A MySQL database is used to store all the items in the shop, which is especially useful when you have complex data sets for your products. To receive the data from the MySQL database an interface written in GO is used. 
-GO is also used for the retrieval of the users, which are stored in a Mongo database, as here no complex data structures with a lot of connections are needed.
-The cart of the shop uses Java to store its information inside a Mongo Database. 
-The order process is done via a Java / .NET Core pipeline, which stores the orders inside a MongoDB. The stored orders are then processed by yet another Java pipeline to determine which orders can be shipped.
-
 
 \section{Alerting}
 To inform the developer about the system, a tool is needed which is able to sends warnings about predefined system states.
@@ -76,7 +67,18 @@ Kubernetes is a Open-Source system that provides a platform for container deploy
 Go is a Programming Language that is as Kubernetes designed, implemented and updated by the Google Inc.. The basic idea about the language is to simplify the syntax compared to c and c++ by preserving it network capability and extend them in the field of Cloud technologies. The language it self is Capable of all modern concept such as Object Orientation and typification and parallelization. It was developed as an Open-Source Software in was first released in 2009.  
 
 \subsection{Hardware}
-We were Testing all of the tools mentioned in the study on a 3 Nodes Kubernetes cluster. Every of the cluster nodes has a 4 Core Intel CPU with 2.3 GHz and 4 Megabytes of Cache . The nodes also have 8 Gigabytes of Ram  each to run on. The Virtual Maschine is KVM which runes on a Fedora Linux. 
+We were Testing all of the tools mentioned in the study on a 3 Nodes Kubernetes cluster. Every of the cluster nodes has a 4 Core Intel CPU with 2.3 GHz and 4 Megabytes of Cache . The nodes also have 8 Gigabytes of Ram  each to run on. The Virtual Maschine is KVM which runes on a Fedora Linux.
+
+\subsection{Sockshop}
+The sockshop is a demo-application for microservices, which can be used to test monitoring microservices. It takes up quite a lot of resources, considering it is a website with a small collection of scripts behind it. This makes the sockshop a very good demo-application, as it produces enough data to test monitoring applications, or simply show the ability of a cluster to handle such tasks.
+Sockshop features a slim but useful HTTP-based API which allows the system owner to retrieve or post data via his own scripts or microservices to complement the application or monitor data values from the inside.
+\subsubsection{Architecture}
+Sockshop is written in multiple languages. The Front-end is written in NodeJS to give the user a nice interface. A MySQL database is used to store all the items in the shop, which is especially useful when you have complex data sets for your products. To receive the data from the MySQL database an interface written in GO is used. 
+GO is also used for the retrieval of the users, which are stored in a Mongo database, as here no complex data structures with a lot of connections are needed.
+The cart of the shop uses Java to store its information inside a Mongo Database. 
+The order process is done via a Java / .NET Core pipeline, which stores the orders inside a MongoDB. The stored orders are then processed by yet another Java pipeline to determine which orders can be shipped.
+
+ 
 %Hier wird der Hauptteil stehen. Falls mehrere Kapitel gewünscht, entweder mehrmals \texttt{\textbackslash{}chapter} benutzen oder pro Kapitel eine eigene Datei anlegen und \texttt{ausarbeitung.tex} anpassen.
 
 %LaTeX-Hinweise stehen in \cref{chap:latextipps}.
