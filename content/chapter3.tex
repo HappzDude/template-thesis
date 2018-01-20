@@ -4,7 +4,9 @@
 \section{Template}
 \subsection{Toolname}
 \label{Toolname} % to refernce in the document
-Introduction Text with all infos about contributors and installation Process
+Introduction Text with all infos about contributors 
+\subsection{Installation}
+Installation as we experienced it on the cluster
 \subsubsection{Appearance}%Only for Visual tools
 Description of the tool front-end with a Screen shot of the homepage/Dashboard
 \subsubsection{Performance}
@@ -13,68 +15,101 @@ Quick analysis of the Performance (CPU/RAM usage during the test)
 Which tools are listed to work with the tool/Which tools are test to work with the tool
 \subsubsection{Conclusion}
 A Quick Pro/Con of the tool and in which environment its best to use
-\section{Installed Tools}%Arbeitstitel
-\subsection{Searchlight (Icinga)}
+\section{Searchlight (Icinga)}
 \label{searchlight}
 As in the Section Icinga \ref{Icinga} described, we were not able to find a pure installation of Icinga for a cluster so we tried to install Searchlight as a backup plan.
 Searchlight is a tool from the AppsCode Inc. (\url{https://appscode.com/},18.12.2017) which is a company located in San Leandro Californian. 
 Searchlight is as many other monitoring tools written in the Programming language of Go.
 \\
 When first trying this over the yaml File we resived errors over the Kubernetes Cluster. There it says the tools is not able to bind the Port 8443. We could not figure out which Application is using the port but as we tried to install the app on a fresh cluster VM it turns out the yaml deployment is working fine.
-\subsubsection{Appearance}
+\subsection{Appearance}
 %\includegraphics[width=1\linewidth]{Bilder/Searchlight_Icinga}\\
 Icinga/Searchlight comes in a  discreet blue/withe coloring. On the Dashboard which represents the homepage of the application an overview of the implemented alerts is shown. The alerts will be Colored with Green/Yellow/Red for OK/Warning/Error, so its easy to see appearing problems. The rest of the option as History and Configurations is located at the sidebar. 
-\subsubsection{Performance}
+\subsection{Performance}
 In our VM deployment the applications has allocated 160MB of RAM under Load. The Application it self is Running very smooth even on low Power Systems. As we deployed some alerts we noticed that it took about 30 seconds to validate the alert and get a first status from the system. After that pending status run Smoothly and even checks on a 30 seconds bases were no Problem for the System.
-\subsubsection{Interoperability}
+\subsection{Interoperability}
 On the Github Page (\url{https://github.com/appscode/searchlight},20.12.2017) of the Program the developer claims to be able to send Notification over Email, SMS and Chat.
 In the Guide there is no explicit explanation what is meant by the term Chat but the tool is cable to send Notifications to Slack(\url{https://slack.com},03.01.2018) and Hipchat. Notification over Email can be without any third party Software send over SMTP. To send SMS a Service like Twilio(\url{https://www.twilio.com/},20.12.2017) is needed.
 On the page there is no advise that the tool is capable of interaction over an over interface then Notification. 
-\subsubsection{Conclusion}
+\subsection{Conclusion}
 Searchlight is a light weighted  port of the famous monitoring tool Icinga. It runs well and has all Basic needed Features. On a deeper Look the Software revaled its weekneses. There are no advanced Possibilities to connect Searchlight with over Monitoring tool. Also there is no Graphical user interface for creating alerts, which makes it very difficult to set it up. As the tool is manly only developed and updated by 2 two people the support for new Version of Icinga and Kubernetes is limited. The fact that the company appcode has no direct correlation with Icinga is a nother counter-argument to the tool. In a nutshell the tool is good for small Kubernetes clusters that want to monitor only a few Basic metrics and have low resources. 
 
-\subsection{Prometeus}
+\section{Prometeus}
 \label{Prometeus} % to refernce in the document
-The tool Prometeus is a open source Project and is hosted by the Cloud Native Computing Foundation. The project was originally built at Soundcloud. The tool can be installed on an os or on cluster like Kubernetes. Because the project is community driven, there is no official repository for Kubernetes, but with a little research we managed to find this repository (https://github.com/kayrus/prometheus-kubernetes,10.01.2018) which provides different deployments for Kubernetes.
-
+The tool Prometeus is a open source Project and is hosted by the Cloud Native Computing Foundation.
+It is a single tool that comes with the features of a whole monitoring stack (without alerting).\\ Prometeus own collector uses client libraries, supported for different languages including GO, Java, Scala, Python and Ruby and more third-party libraries for various other languages. The Collector is able to pull data from the server or cluster it is deployed on via HTTP\\
+ The project was originally built at Soundcloud and nowadays is used by big companies like jodel, docker and Core OS (\url{https://prometheus.io/},20.0.1.2018). \\
+ Prometeus also has an alert manager, which is an extra tool to send Message with the cluster state via E-Mail, HipChat, PagerDuty, Pushover, Slack, OpsGenie and VictorOps. These alerts have to be set up in an config file. \\
+  Because the project is community driven, there is no official repository for Kubernetes, but with a little research we managed to find this repository (https://github.com/kayrus/prometheus-kubernetes,10.01.2018) which provides different deployments for Kubernetes.
+\subsection{Installation}
 We managed to install Prometeus so that we were able to get metrics from the Api-server and can expose them over a restful interface. Over this interface it was possible to connect Prometeus to a application outside or inside the cluster like Grafana which is recommended for Prometeus. We were not able to install the Promteus own alertmanger on the cluster. Also we were not able to get metrics from the cluster-nodes because the Prometeusversion is not cable of requesting over https. 
-\subsubsection{Appearance}%Only for Visual tools
+\subsection{Appearance}%Only for Visual tools
 Prometeus provides a web ui for user to see the collected data. It is designed in a very light wighted black an with combination with some blue ascents and only shows the necessary things. The interface has no function to save the set of graphs that is selected and no option to login to keep the data save or to divide the data by some user groups.   
-\subsubsection{Performance}
-The tool is very quickly booted and shows no Performance problems on the interface. A look on the stats shows that Prometeus is not very CPU dependent but takes up to 2GB of RAM. These high numbers of RAM is allocated over a time from about 24h. 
-\subsubsection{Interoperability}
+\subsection{Performance}
+The tool is very quickly booted and shows no Performance problems on the interface. A look on the stats shows that Prometeus is not very CPU dependent, it oscilates up und down because the collection data peaks as show in \cref{fig:Prometeus_Cpu}. In the use of meomory the tool is a littel bit more demanding and takes up to 2GB of RAM. These high numbers of RAM is allocated over a time from about 24h. 
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{Bilder/Performance/Prometeus_Cpu}
+\caption{}
+\label{fig:Prometeus_Cpu}
+\end{figure}
+\subsection{Interoperability}
 It's highly recommended that Prometeus is used with a Graphing and alerting tool because its just a collector and time series database with a query engine. In our Deployment Graphana is used, which is also recommended by the Prometeus web page (\url{https://prometheus.io/},12.01.2018). Exploiting Prometheus to any other tool is also possible as Prometeus provides the metrics that are collected in plain text
-\subsubsection{Conclusion}
+\subsection{Conclusion}
 Prometeus is very good as a Collector for large Kubernetes Clusters with hundreds or thousands of nodes. What makes it so good is the With-Box monitoring approach, which provides way more metrics than a black-box monitoring. These fact can be used to detect problems in the system earlier and in much more detail so that the downtime can be reduced. On the over side Prometeus is not good for presenting this data and to throw alerts in case of failure.
 
-\subsection{Zabbix}
+\section{Zabbix}
 \label{Zabbix} % to refernce in the document
 % \url{https://dl.acm.org/citation.cfm?id=1883485} Linux Journal
 \cite{Hernantes2015}
 The tool Zabbix is an open-source tool and is developed by Zabbix LLC (Limited Liability Company) since 2005 (\url{https://www.zabbix.com},15.01.2018). Zabbix provides a all in one Solution with includes a Collector, Database, Visualization tool and a alert manager. Moreover there is a repo from monitoringartist (\url{https://github.com/monitoringartist/kubernetes-zabbix},15.01.2018) that provides a yaml which maps Zabbix client and server on a cluster structure.  
-\subsubsection{Appearance}%Only for Visual tools
+\subsection{Appearance}%Only for Visual tools
 Zabbix come with a withe and blue web interface with some Red accents. It implements a tab system with subtabs to navigate through the interface. The naming itself is not as explaining as it could be.  
-\subsubsection{Performance}
+\subsection{Performance}
 The general Performance of Zabbix is very good. The three parts in hole take up to 1GB of ram of the System and about 0.5 \% of the Processor load. The Minimum Requirements for Zabbix are specified with Pentium 2 of 350Mhz and 256MB of Ram \cite{Marik2014}.
-\subsubsection{Interoperability}
+\subsection{Interoperability}
 Zabbix provides a different API to connect to other entities. The web interface  provide a PHP script that accepts querys. Grafana itself has a extra plug in which is connectible to Zabbix and show a optimized dashboard with all relevant informations. The tool is also capable of sending alerts over email, SMS, and jabber. Zabbix gives also the ability to create customscripts and to execute them in case of a alert. For example a cli script can be triggerd over ssh. 
-\subsubsection{Conclusion}
+\subsection{Conclusion}
 Zabbix is one of the best optimized and extend open-source solutions out there. The installation was by far the simplest and overarching of all the tested tools. The configuration is complex and the naming is not at ever position as aspect-ed. By default Zabbix scales over all of the available nodes but can be scaled up manual. The best way to use Zabbix is to pare it with a Grafana instance which provides the information from Zabbix tighter and with a better overview.
 
-\subsection{ELK Stack (logstash, elasticsearch, kibana)}
+\section{ELK Stack (logstash, elasticsearch, kibana)}
 \label{elk} % to refernce in the document
 Elasticsearch is a tool developed by elastic.(\url{https://www.elastic.co/}, 10.01.2018) The company Elastic has many locations all around the world and seems to be very present for its customers.
 The ELK Stack is a logging tool which is developed java and divided up into three parts. First the logstash, the Collector of the stack. Second elasticsearch which queries the data given by the collector and last kibana the visualization tool of the stack.
+\subsection{Installation}
 ELK Stack is easy deployable at the kubernetes cluster ?!?!?!. There is a complete ELK Stack kubernetes version provided by kubernetes. Just deploy each yaml and the tools are working. Hier fehlt noch die solution dass das tool richtig läuft und die erklöarung dazu.
 
-\subsubsection{Appearance}%Only for Visual tools
+\subsection{Appearance}%Only for Visual tools
 Kibana is the only tool in the complete Stack with a user interface. It is accessible over the homepage of the application. The site is starting with a discover page, where all logs are listed in a time chronological order. The discover page also allows to filter these logs by key words. On the leftside is the sidebar with management, devtools, visualize, timeline, discoverer and dashboard. The dashboard tab, is for creating an own dashboard with the own preferences.
-\subsubsection{Performance}
+\subsection{Performance}
 Quick analysis of the Performance (CPU/RAM usage during the test)
-\subsubsection{Interoperability}
+\subsection{Interoperability}
 Elasticsearch also offers many a tool to include alerts. The tool can send any alerts which you can query with elasticsearch. On the official website, elastics mentioned they can send the notifications on E-Mail, PagerDuty, Slack and HipChat and it also offers an interface with an webhook-output to integrate any third-party-software for messaging. With this interface it might be easy to include sending alerts with SMS like earlier mentioned the program Twilio(\ref{searchlight}).
-\subsubsection{Conclusion}
+\subsection{Conclusion}
 A Quick Pro/Con of the tool and in which environment its best to use
+
+\section{Grafana}
+\label{grafana} % to refernce in the document
+Grafana is a tool to visualize the data collected about a system. It features different graphs, including graphs with changes over time, single stats for live feeds, tables to show multiple data from different sources and heatmaps to show the distribution of values over a timespan.
+Grafana also comes with an inbuilt alerting system which allows the user to be notified under specific conditions via E-Mail, Slack, PagerDuty, DingDing / DingTalk, Kafka. The alerting also has a webhook, allowing the user to send his alerts to a custom endpoint via HTTP.
+The graphs and alerts are setup in the webinterface of Grafana which comes with its own User Management. It differentiates between users and administrators and super-administrators. Administrators can be assigned to an organisation, allowing different systems to be monitored by one Grafana instance, while still giving the owners of the single system the option to manage their own alerts and graphs.
+Grafana also features a LDAP Authentication to automatically import users and permissions from a user directory.
+\subsection{Installation}
+The installation of Grafana is very simple, because it only runs on a single Docker container. Because Grafana is no collector over tools provide an extra version of Grafana in there repostitory that is optimized for there data sources.
+\subsection{Appearance}%Only for Visual tools
+Grafana mainly uses the colors Red and Orange and comes with a Dashboard. Due to the Data Source that is selected this changes to a set of Graphs which show the information of the Data source. Per drag and Drop the Graphs and text boxed can be freely moved around. 
+\subsection{Performance}
+The Performance of Grafana is very good. The tools consumes  nearly no CPU and only a few Megabytes of Ram as shown in \cref{fig:Grafan_RAM}. The Diagram also shows that the amount of the used Resources is constant over time
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{Bilder/Performance/Grafan_RAM}
+\caption{Graphane Ressource use}
+\label{fig:Grafan_RAM}
+\end{figure}
+\subsection{Interoperability}
+
+\subsection{Conclusion}
+Grafana is by far the best and biggest Visualization tool on the Open-Source Market. Do to the cablility to writhe custom plugins nearly every tool stack has an integration which is easy to install and unses the features of Grafana in the intention of the developer 
 
 \section{Failed Tools}%Ebenfalls nur ein arbeitstitel
 In the Process of Developing and Evaluating the APM we Discoverd a bunch of Tools that we were not able to install even that they clamed to be optimized to work on Kubernetes .
