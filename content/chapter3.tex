@@ -1,20 +1,20 @@
 % !TeX spellcheck = en_US
  
 \chapter{Tools} %Das ist nur ein Arbeitstitel
-\section{Template}
-\subsection{Toolname}
-\label{Toolname} % to refernce in the document
-Introduction Text with all infos about contributors 
-\subsection{Installation}
-Installation as we experienced it on the cluster
-\subsubsection{Appearance}%Only for Visual tools
-Description of the tool front-end with a Screen shot of the homepage/Dashboard
-\subsubsection{Performance}
-Quick analysis of the Performance (CPU/RAM usage during the test)
-\subsubsection{Interoperability}
-Which tools are listed to work with the tool/Which tools are test to work with the tool
-\subsubsection{Conclusion}
-A Quick Pro/Con of the tool and in which environment its best to use
+%\section{Template}
+%\subsection{Toolname}
+%\label{Toolname} % to refernce in the document
+%Introduction Text with all infos about contributors 
+%\subsection{Installation}
+%Installation as we experienced it on the cluster
+%\subsubsection{Appearance}%Only for Visual tools
+%Description of the tool front-end with a Screen shot of the homepage/Dashboard
+%\subsubsection{Performance}
+%Quick analysis of the Performance (CPU/RAM usage during the test)
+%\subsubsection{Interoperability}
+%Which tools are listed to work with the tool/Which tools are test to work with the tool
+%\subsubsection{Conclusion}
+%A Quick Pro/Con of the tool and in which environment its best to use
 \section{Searchlight (Icinga)}
 \label{searchlight}
 As in the Section Icinga \ref{Icinga} described, we were not able to find a pure installation of Icinga for a cluster so we tried to install Searchlight as a backup plan.
@@ -92,7 +92,7 @@ A Quick Pro/Con of the tool and in which environment its best to use
 \label{grafana} % to refernce in the document
 Grafana is a tool to visualize the data collected about a system. It features different graphs, including graphs with changes over time, single stats for live feeds, tables to show multiple data from different sources and heatmaps to show the distribution of values over a timespan.
 Grafana also comes with an inbuilt alerting system which allows the user to be notified under specific conditions via E-Mail, Slack, PagerDuty, DingDing / DingTalk, Kafka. The alerting also has a webhook, allowing the user to send his alerts to a custom endpoint via HTTP.
-The graphs and alerts are setup in the webinterface of Grafana which comes with its own User Management. It differentiates between users and administrators and super-administrators. Administrators can be assigned to an organisation, allowing different systems to be monitored by one Grafana instance, while still giving the owners of the single system the option to manage their own alerts and graphs.
+The graphs and alerts are setup in the web interface of Grafana which comes with its own User Management. It differentiates between users and administrators and super-administrators. Administrators can be assigned to an organization, allowing different systems to be monitored by one Grafana instance, while still giving the owners of the single system the option to manage their own alerts and graphs.
 Grafana also features a LDAP Authentication to automatically import users and permissions from a user directory.
 \subsection{Installation}
 The installation of Grafana is very simple, because it only runs on a single Docker container. Because Grafana is no collector over tools provide an extra version of Grafana in there repostitory that is optimized for there data sources.
@@ -107,9 +107,10 @@ The Performance of Grafana is very good. The tools consumes  nearly no CPU and o
 \label{fig:Grafan_RAM}
 \end{figure}
 \subsection{Interoperability}
+Grafana can interact withe nearly every Interface to sent alerts to because of its Web hooks which can send and request to an Restful endpoint over a JSON document. Whats special about the alerting engine of Grafana is that Pictures can be send within the alerts. The Pictures is taken of the Grafana to present the alert in a Visual way and can be send with the notification or can be uploaded to Services like Amazon S3.
 
 \subsection{Conclusion}
-Grafana is by far the best and biggest Visualization tool on the Open-Source Market. Do to the cablility to writhe custom plugins nearly every tool stack has an integration which is easy to install and unses the features of Grafana in the intention of the developer 
+Grafana is by far the best and biggest Visualization tool on the Open-Source Market. Do to the capability to writhe custom plug ins nearly every tool stack has an integration which is easy to install and uses the features of Grafana in the intention of the developer 
 
 \section{Failed Tools}%Ebenfalls nur ein arbeitstitel
 In the Process of Developing and Evaluating the APM we Discoverd a bunch of Tools that we were not able to install even that they clamed to be optimized to work on Kubernetes .
