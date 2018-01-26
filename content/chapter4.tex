@@ -1,3 +1,72 @@
 % !TeX spellcheck = en_US
- 
 \chapter{Evaluation} %Das ist nur ein Arbeitstitel
+% \useunder{\uline}{\ul}{}
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{lllll}
+\cellcolor[HTML]{FFFFFF}Tool & RESTful                     & Multiple Input Formats      & Plugins for own data        & Push / Pull                  \\
+Telegraf                     & \cellcolor[HTML]{FFFFFF}Yes & Yes                         & Yes                         & Pull                         \\
+Beats                        & Yes                         & \cellcolor[HTML]{FFFFFF}Yes & Yes                         & Push                         \\
+Logstash                     & Yes                         & No                          & \cellcolor[HTML]{FFFFFF}Yes & Both                         \\
+Icinga2 (Plugins)            & No                          & No                          & Yes                         & \cellcolor[HTML]{FFFFFF}Push \\
+Prometheus (Client)          & No                          & No                          & Yes                         & \cellcolor[HTML]{FFFFFF}Push \\
+Zabbix (Agent)               & No                          & No                          & \cellcolor[HTML]{FFFFFF}No  & Both                        
+\end{tabular}
+\end{table}
+
+\\
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{llll}
+\cellcolor[HTML]{FFFFFF}Tool & Database-Authentication     & Timestamp-Database          & Multiple Data Points        \\
+InfluxDB                     & \cellcolor[HTML]{FFFFFF}Yes & Yes                         & Yes                         \\
+Elasticsearch                & Only https and credentials  & \cellcolor[HTML]{FFFFFF}Yes & Yes                         \\
+Icinga2 (Server)             & No                          & No                          & No                          \\
+Prometheus (Master)          & No                          & \cellcolor[HTML]{FFFFFF}Yes & Yes                         \\
+Zabbix (Master)              & Yes                         & Yes                         & \cellcolor[HTML]{FFFFFF}Yes
+\end{tabular}
+\end{table}
+
+\\
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{llll}
+\cellcolor[HTML]{FFFFFF}Tool & LDAP-Authetication         & Scalable Graphs             & Overlapping Graphs          \\
+Chronograf                   & \cellcolor[HTML]{FFFFFF}No & Yes                         & Yes                         \\
+Kibana                       & Yes                        & \cellcolor[HTML]{FFFFFF}Yes & Yes                         \\
+Grafana                      & Yes                        & \cellcolor[HTML]{FFFFFF}Yes & Yes                         \\
+Zabbix (Master)              & Yes                        & Yes                         & \cellcolor[HTML]{FFFFFF}Yes
+\end{tabular}
+\end{table}
+
+\\
+
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[]
+\centering
+\caption{My caption}
+\label{my-label}
+\begin{tabular}{lllllll}
+\cellcolor[HTML]{FFFFFF}Tool & HTTP requests & Grouping of alerts         & E-Mail                      & Messangers                  & Custom alerts & Action on alert \\
+Kapacitor                    & Yes           & \cellcolor[HTML]{FFFFFF}No & Yes                         & Yes                         & Yes           & No              \\
+Elastalert                   & No            & No                         & \cellcolor[HTML]{FFFFFF}No  & No                          & Yes           & No              \\
+Grafana                      & Yes           & Yes                        & \cellcolor[HTML]{FFFFFF}Yes & Yes                         & Yes           & Yes             \\
+Zabbix (Master)              & Yes           & Yes                        & Yes                         & \cellcolor[HTML]{FFFFFF}Yes & Yes           & Yes            
+\end{tabular}
+\end{table}
