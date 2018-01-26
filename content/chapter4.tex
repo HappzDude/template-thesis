@@ -6,13 +6,16 @@
 \caption{Collectors}
 \label{my-label}
 \begin{tabular}{p{3cm}cccc}
+\hline
 Tool & RESTful                     & Multiple Input Formats      & Plugins for own data        & Push / Pull                  \\
+\hline
 Telegraf                     & Yes & Yes                         & Yes                         & Pull                         \\
 Beats                        & Yes                         & Yes & Yes                         & Push                         \\
 Logstash                     & Yes                         & No                          & Yes & Both                         \\
 Icinga2 (Plugins)            & No                          & No                          & Yes                         & Push \\
 Prometheus (Client)          & No                          & No                          & Yes                         & Push \\
-Zabbix (Agent)               & No                          & No                          & No  & Both                        
+Zabbix (Agent)               & No                          & No                          & No  & Both \\
+\hline                        
 \end{tabular}
 \end{table}
 
@@ -24,12 +27,15 @@ Zabbix (Agent)               & No                          & No                 
 \caption{Databases}
 \label{my-label}
 \begin{tabular}{p{3cm}p{3cm}p{3cm}c}
+	\hline
 Tool & Database-Authentication     & Timestamp-Database          & Multiple Data Points        \\
+\hline
 InfluxDB                     & Yes & Yes                         & Yes                         \\
 Elasticsearch                & Only https and credentials  & Yes & Yes                         \\
 Icinga2 (Server)             & No                          & No                          & No                          \\
 Prometheus (Master)          & No                          & Yes & Yes                         \\
-Zabbix (Master)              & Yes                         & Yes                         & Yes
+Zabbix (Master)              & Yes                         & Yes                         & Yes\\
+\hline
 \end{tabular}
 \end{table}
 
@@ -41,11 +47,14 @@ Zabbix (Master)              & Yes                         & Yes                
 \caption{Visualization Tools}
 \label{my-label}
 \begin{tabular}{cccc}
+	\hline
 Tool & LDAP-Authetication         & Scalable Graphs             & Overlapping Graphs          \\
+\hline
 Chronograf                   & No & Yes                         & Yes                         \\
 Kibana                       & Yes                        & Yes & Yes                         \\
 Grafana                      & Yes                        & Yes & Yes                         \\
-Zabbix (Master)              & Yes                        & Yes                         & Yes
+Zabbix (Master)              & Yes                        & Yes                         & Yes\\
+\hline
 \end{tabular}
 \end{table}
 
@@ -57,11 +66,14 @@ Zabbix (Master)              & Yes                        & Yes                 
 	\caption{Alerting Tools}
 	\label{my-label}
 	\begin{tabular}{lcccc}
+		\hline
 		Tool & HTTP requests & Grouping of alerts         & E-Mail                      & Messangers                  & Custom alerts & Action on alert \\
+		\hline
 		Kapacitor                    & Yes           & No & Yes                         & Yes                         & Yes           & No              \\
 		Elastalert                   & No            & No                         & No  & No                          & Yes           & No              \\
 		Grafana                      & Yes           & Yes                        & Yes & Yes                         & Yes           & Yes             \\
-		Zabbix (Master)              & Yes           & Yes                        & Yes                         & Yes & Yes           & Yes            
+		Zabbix (Master)              & Yes           & Yes                        & Yes                         & Yes & Yes           & Yes            \\
+		\hline
 	\end{tabular}
 \end{table}
 
@@ -73,10 +85,13 @@ Zabbix (Master)              & Yes                        & Yes                 
 	\caption{Alerting Tools cont.}
 	\label{my-label}
 	\begin{tabular}{lcc}
+		\hline
 		Tool & Custom alerts & Action on alert \\
+		\hline
 		Kapacitor                    & Yes           & No              \\
 		Elastalert                   & Yes           & No              \\
 		Grafana                      & Yes           & Yes             \\
-		Zabbix (Master)              & Yes           & Yes            
+		Zabbix (Master)              & Yes           & Yes           \\
+		\hline 
 	\end{tabular}
 \end{table}
