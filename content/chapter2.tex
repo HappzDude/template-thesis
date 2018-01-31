@@ -5,8 +5,8 @@
 \section{General Stack}
 To explain a Stack in general, distinguish the difference between monitoring and logging. First, monitoring is running in the background and constantly collects the system data's, these data is collected by specific metrics. However logging is only triggered by a definite event or exception.
 With this knowledge it is a easier understanding how to establish a monitoring stack. Therefor 4 different types of tools are needed(\cite{cau37427},Chapter 2).
-First at all one for collect data from the system by specific metrics, the collector. Second to store, maintain and querying them, the database and last to visualize the data, the visualization tool. Sometimes an alerting tool is also needed, but this is often integrated in the visualization tool.
-The logging stack has similar 
+First at all one for collect data from the system by specific metrics, the collector. Second to store, maintain and querying them, the database and last to visualize the data, the visualization tool. Sometimes an alerting tool is also needed, but this is often integrated in the visualization tool.\\ 
+Logging stacks have similar Architecture but here the Collector does not send Metric data to the Database. Instead log of the hole System are Collected in one place. These two types of APM can be done simultaneously.
 
 \section{Collector}
 To get data in a centralized spot a tool is needed to collect the data were its generated and transport it to the Server or provide an interface for the Server to collect the data.\\
