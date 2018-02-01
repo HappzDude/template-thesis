@@ -1,13 +1,22 @@
 % !TeX spellcheck = en_US
 \chapter{Evaluation} %Das ist nur ein Arbeitstitel
 % \useunder{\uline}{\ul}{}
-\begin{table}[]
+\section{Supplier details of the tools}
+The tables show the supplier details by the type of the tools. These were selected from the website of the tool and compared with selected critical points. 
+\subsection{Collectors}
+The collector table \ref{tab:Collector} shows all collector-tools deployed and tested in this document. 
+\subsection{Databases}
+The database table \ref{tab:database} shows all database-tools deployed and tested in this document.
+\subsection{Visualization}
+The database table \ref{tab:visualization} shows all visualization-tools deployed and tested in this document.
+\subsection{Alerting}
+The database table \ref{tab:alerting} shows all alerting-tools deployed and tested in this document.
+\begin{table}
 \centering
-\caption{Collectors}
-\label{my-label}
+\label{tab:Collector}
 \begin{tabular}{p{3cm}cccc}
 \hline
-Tool & RESTful                     & Multiple Input Formats      & Plugins for own data        & Push / Pull                  \\
+Tool & RESTful                     & Multiple Input Formats      & Plugins for own data        & Push / Pull                 \\
 \hline
 Telegraf                     & Yes & Yes                         & Yes                         & Pull                         \\
 Beats                        & Yes                         & Yes & Yes                         & Push                         \\
@@ -17,15 +26,17 @@ Prometheus (Client)          & No                          & No                 
 Zabbix (Agent)               & No                          & No                          & No  & Both \\
 \hline                        
 \end{tabular}
+\caption{Collectors}
 \end{table}
+
 
 % Please add the following required packages to your document preamble:
 % \usepackage[table,xcdraw]{xcolor}
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}[]
+\begin{table}
 \centering
-\caption{Databases}
-\label{my-label}
+
+\label{tab:database}
 \begin{tabular}{p{3cm}p{3cm}p{3cm}c}
 	\hline
 Tool & Database-Authentication     & Timestamp-Database          & Multiple Data Points        \\
@@ -37,15 +48,16 @@ Prometheus (Master)          & No                          & Yes & Yes          
 Zabbix (Master)              & Yes                         & Yes                         & Yes\\
 \hline
 \end{tabular}
+\caption{Databases}
 \end{table}
 
 % Please add the following required packages to your document preamble:
 % \usepackage[table,xcdraw]{xcolor}
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}[]
+\begin{table}
 \centering
-\caption{Visualization Tools}
-\label{my-label}
+
+\label{tab:visualization}
 \begin{tabular}{cccc}
 	\hline
 Tool & LDAP-Authetication         & Scalable Graphs             & Overlapping Graphs          \\
@@ -56,31 +68,33 @@ Grafana                      & Yes                        & Yes & Yes           
 Zabbix (Master)              & Yes                        & Yes                         & Yes\\
 \hline
 \end{tabular}
+\caption{Visualization Tools}
 \end{table}
 
-\begin{table}[]
+\begin{table}
 	\centering
-	\caption{Alerting Tools}
-	\label{my-label}
+	
+	\label{tab:alerting}
 	\begin{tabular}{lcccc}
 		\hline
-		Tool & HTTP requests & Grouping of alerts         & E-Mail                      & Messangers \\
-		\hline
-		Kapacitor                    & Yes           & No & Yes                         & Yes \\
-		Elastalert                   & No            & No                         & No  & No  \\
-		Grafana                      & Yes           & Yes                        & Yes & Yes \\
-		Zabbix (Master)              & Yes           & Yes                        & Yes                         & Yes \\
+Tool & HTTP requests & Grouping of alerts         & E-Mail                      & Messangers \\
+\hline
+Kapacitor                    & Yes           & No & Yes                         & Yes \\
+Elastalert & No & No & No & No \\
+Grafana                      & Yes           & Yes                        & Yes & Yes \\
+Zabbix (Master)              & Yes           & Yes                        & Yes                         & Yes \\
 		\hline
 	\end{tabular}
+	\caption{Alerting Tools}
 \end{table}
 
 % Please add the following required packages to your document preamble:
 % \usepackage[table,xcdraw]{xcolor}
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}[]
+\begin{table}
 	\centering
-	\caption{Alerting Tools cont.}
-	\label{my-label}
+	
+	\label{tab:alertingcont}
 	\begin{tabular}{lcc}
 		\hline
 		Tool & Custom alerts & Action on alert \\
@@ -91,4 +105,5 @@ Zabbix (Master)              & Yes                        & Yes                 
 		Zabbix (Master)              & Yes           & Yes           \\
 		\hline 
 	\end{tabular}
+	\caption{Alerting Tools cont.}
 \end{table}
