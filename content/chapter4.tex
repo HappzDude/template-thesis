@@ -2,15 +2,9 @@
 \chapter{Evaluation} %Das ist nur ein Arbeitstitel
 % \useunder{\uline}{\ul}{}
 \section{Supplier details of the tools}
-The tables show the supplier details by the type of the tools. These were selected from the website of the tool and compared with selected critical points. 
-\subsection{Collectors}
-The collector table \ref{tab:Collector} shows all collector-tools deployed and tested in this document. 
-\subsection{Databases}
-The database table \ref{tab:database} shows all database-tools deployed and tested in this document.
-\subsection{Visualization}
-The database table \ref{tab:visualization} shows all visualization-tools deployed and tested in this document.
-\subsection{Alerting}
-The database table \ref{tab:alerting} shows all alerting-tools deployed and tested in this document.
+Each tables show the supplier details by the type of tools. These were selected from the website of the tools and compared with chosen critical points. The \vref{tab:Collector} compares different collector tools. Primary how the logs and metrics are transferred to the databases. The second \cref{tab:Databases} shows the databases. They are compared by security and if they are time-series, what is more specified, if they can store multiple data points at one time stamp. The next \cref{tab:Visualization} collates the different visualization tools. One aspect is the security of the tool. Furthermore the what kind of graphs the tools can display. The last \cref{tab:Alerting} and \cref{tab:Alertingcont} compares the altering tools. What kind of alerts can be send, are the alerts self create able and are these alerts group able. 
+
+
 \begin{table}
 \centering
 \label{tab:Collector}
@@ -57,7 +51,7 @@ Zabbix (Master)              & Yes                         & Yes                
 \begin{table}
 \centering
 
-\label{tab:visualization}
+\label{tab:Visualization}
 \begin{tabular}{cccc}
 	\hline
 Tool & LDAP-Authetication         & Scalable Graphs             & Overlapping Graphs          \\
@@ -74,7 +68,7 @@ Zabbix (Master)              & Yes                        & Yes                 
 \begin{table}
 	\centering
 	
-	\label{tab:alerting}
+	\label{tab:Alerting}
 	\begin{tabular}{lcccc}
 		\hline
 Tool & HTTP requests & Grouping of alerts         & E-Mail                      & Messangers \\
@@ -94,7 +88,7 @@ Zabbix (Master)              & Yes           & Yes                        & Yes 
 \begin{table}
 	\centering
 	
-	\label{tab:alertingcont}
+	\label{tab:Alertingcont}
 	\begin{tabular}{lcc}
 		\hline
 		Tool & Custom alerts & Action on alert \\
