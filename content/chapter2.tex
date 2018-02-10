@@ -3,75 +3,75 @@
 \chapter{Technical Data}
 \label{chap:ch2}
 \section{General Stack}
-To explain a Stack in general, distinguish the difference between monitoring and logging. First, monitoring is running in the background and constantly collects the system data's, these data is collected by specific metrics. However logging is only triggered by a definite event or exception.
-With this knowledge it is a easier understanding how to establish a monitoring stack. Therefor 4 different types of tools are needed(\cite{cau37427},Chapter 2).
-First at all one for collect data from the system by specific metrics, the collector. Second to store, maintain and querying them, the database and last to visualize the data, the visualization tool. Sometimes an alerting tool is also needed, but this is often integrated in the visualization tool.\\ 
-Logging stacks have similar Architecture but here the Collector does not send Metric data to the Database. Instead log of the hole System are Collected in one place. These two types of APM can be done simultaneously.
+To explain a Stack in general, distinguish the difference between monitoring and logging. First, monitoring is running in the background and constantly collects the system data, these data is collected by specific metrics. However logging is only triggered by a definite event or exception.
+With this knowledge it is a easier understanding how to establish a monitoring stack. Therefore 4 different types of tools are needed(\cite{cau37427},Chapter 2).
+First of all one for collect data from the system by specific metrics, the collector. The second type of tool is to store, maintain and querying them, the database. The third type of tool is to visualize the data, the visualization tool. Sometimes an alerting tool is also needed, but this is often integrated in the visualization tool.\\ 
+Logging stacks have similar architecture, but in this case the Collector does not send metric data to the database. The log files of the whole system are collected in one place. These two types of APM can be done simultaneously.
 
 \section{Collector}
-To get data in a centralized spot a tool is needed to collect the data were its generated and transport it to the Server or provide an interface for the Server to collect the data.\\
-Tools for this purpose we call Collectors. Were are Collectors for every Monitoring Purpose. Its very common that a Collector provides a general interface like an XML or JSON data or can be adapted to variable databases to get a wide spectrum of Use-Cases.\\
- The monitored metrics are dependent on the environment and the collector also has to use other tools that the system provides  to get these special type of metrics. In general the data that is collected can be split up in System data and Application data. System data are all physical values like CPU load, Ram and Hard Disc Drive usage. These will be provided by cAdvisor (\ref{cadvisor}) in the case of Kubernetes. Application data is dependent on the application. In the case of monitoring Kubernetes the number of jobs/pods or the number of connection per time will be monitored. These and over data will be provided by the Api-server(\ref{apiserver}) of Kubernetes.
+To get data in a centralized spot a tool is needed to collect the data were it is generated and transport it to the server or provide an interface for the server to collect the data.\\
+We call tools for this purpose collectors. There are collectors for every monitoring purpose. It is very common that a collector provides a general interface like XML or JSON files or can be adapted to variable databases to get a wide spectrum of cases to be applied.\\
+ The monitored metrics dependent on the environment and the collector also has to use other tools that the system provides  to get this special type of metrics. In general the data collected can be split up in system data and application data. All system data are all physical values like CPU load, RAM and hard disc drive usage. These will be provided by cAdvisor (\ref{cadvisor}) in the case of Kubernetes. In the case of monitoring Kubernetes the number of jobs/pods or the number of connection per second/minute will be monitored. These and other data will be provided by the Api-server(\ref{apiserver}) of Kubernetes.
 \subsection{cAdvisor}
 \label{cadvisor}
-Container Advisor (cAdvisor) is tool for collection,processing and exporting data of containers. It is native designed for Docker but can be applied to ever other container. All information about the container is accessible over a REST api that gives back a JSON files with all data. A copy of cAdvisor is Deployed within every Kubernetes Pod, so every APM tool can get the metrics of the system.
+Container Advisor (cAdvisor) is a tool for collecting, processing and exporting data of containers. It is originally designed for Docker but can be applied to any other container. All information about the container is accessible over a REST api that returns a JSON file that contains all data. A copy of cAdvisor is deployed within any Kubernetes Pod, so every APM tool can get the system metrics.
 \subsection{Api-Server}
 \label{apiserver} 
-Api-Server is a tool that provides a RESTful interface and is a front end for the hole Kubernetes Cluster. Over the Api-Server a user is able to interact with all Components of the cluster. 
+Api-Server is a tool that provides a RESTful interface and is a front end for the whole Kubernetes Cluster. Over the Api-Server a user is able to interact with all components of the cluster. 
 \section{Database}
-The Databases for APM are usual time-series based (\ref{TS-Database}). As every other database its used to make data persistent and perform request over multiple entities to get new informations about critical values and value changes over time.
-Databases can offer two types of data providing methods. Most of the time the database provides a well defined interface which normals provides a authentication method to insert data into the database. Every of these Snapshot than gets a timestamp.\\
-The over method is that the database preforms a get operation onto a interface provided by the Collector. This type of data-collection is better for static systems.
+The databases for APM are usually time-series based (\ref{TS-Database}). As every other database it is used to make data persistent and perform request over multiple entities to get new informations about critical values and value changes over a time period.
+Databases can offer two types of data providing methods. Most of the time the database provides a well defined interface which normally provides an authentication method to insert data into the database. Any snapshot then gets a time stamp.\\
+The other method is that the database performs a get operation onto an interface provided by the collector. This type of data collection is better for static systems.
 
 \subsection{Time-Series-Database}
 \label{TS-Database}
- Time-Series-Database is a special kind of database developed for saving time series data. This data consists of arrays which are indexed by a time stamp. By the term Time-Series also a time ranges could be used (as a primary key). These types of Databases  can create, enumerate, update, delete and analyze time-series-data.
+ Time-Series-Database is a special kind of database developed for saving time related data. These data consist of arrays which are indexed by a time stamp. By the term Time-Series time ranges could also be used as primary key. These types of Databases are capable of creating, enumerating, updating, deleting and analyzing time-series-data.
 Often they also allow you to merge multiple time-series together and make one data set out of them.
-Like each other database, time-series-databases can also filter the data which is normally ordered ascending by time.
+Like each other database, time-series-databases can also filter the data. They are also capable of ordering the dataset by values like time.
 
 \section{Visualization} 
-The Visualization tools are used to display the data stored in the databases in a nice and organized way. This is realized with plain text or by graphs. Graphs have the big advantage to be able to display the data changes over time and can very easily illustrate spikes in the data sets. Furthermore graphs can present data in more than one way which makes it easier for humans to detect abnormal data spikes.\\
+The Visualization tools are used to display the data stored in the databases in a comfortable and organized way. This is realized by plain text or graphs. Graphs have the big advantage to be able to display the value changes over time and can very easily illustrate spikes in the data sets. Furthermore graphs can present the data in more than one way, which makes it easier for people to detect abnormal data spikes.\\
 \\ 
-Usually all this information can be accessed via a web interface as this also gives a nice option for logins and distribution of permissions. This is especially useful when the data is very sensitive.
+Usually all this information can be accessed via a web interface as this also gives an option for identification. This is especially useful when the data are of high importance.
 Often these tools also implement easy to use interfaces for alerting tools, to set conditions for specific alerts, which can save a lot of time.
 
 \subsection{Graphs}
-As previously mentioned, the data we collected from the cluster needs to be written out of the Database and displayed in a nice and readable fashion. Thus most visualization tools use graphs to display the collected data. 
+As previously mentioned, the data we collected from the cluster must be readout of the database and displayed in a readable fashion. Thus most visualization tools use graphs to display the collected data. 
 Using graphs not only makes the data easy to read, but it also adds the option to scale the data to our needs and preferences. This can be very useful when looking for trends in a bigger time range.\\
-It also gives the option of color coding the data, which can be useful to either see dangerous values more quickly, or simply render multiple data streams in one graph to compare them or to see them im comparison too the hole system.
+It also gives the option of color coding the data, which can be useful to either see dangerous values more quickly, or simply render multiple data streams in one graph to compare them or to see them in comparison to the whole system.
 \subsection{Permission Management}
-Most Visualization tools have a web interface in which all the data is displayed. To make sure only authorized people can view the data, these tools usually implement a few permission management methods. 
-These can be ranging from simple login permissions to viewing permissions of specific data streams. Some tools allow for complete customization of the permission settings, while others offer a set of permission templates. The most popular method of authorization seems to be LDAP, as this can be used for simple and complex permission schemes alike. 
+Most visualization tools have a web interface in which all the data are displayed. To make sure only authorized people can view the data, these tools usually implement a few permission management methods. 
+These can be ranging from simple login dialogs to viewing permissions of specific data streams only to authorized people. Some tools allow complete customization of the permission settings, while others offer a set of permission templates. The most popular method of authorization seems to be LDAP, as this can be used for simple and complex permission schemes alike. 
 \subsubsection{LDAP}
-Written-out Lightweight Directory Access Protocol is a Network-protocol on a client-server basis. LDAP describes the communication between the client and the LDAP Directory. The data-structure of of LDAP is the so called Directory Information Tree which is organized by one suffix(root) and nodes.  
+Written-out Lightweight Directory Access Protocol is a Network-protocol on a client-server basis. LDAP describes the communication between the client and the LDAP Directory. The data-structure of LDAP is the so-called Directory Information Tree which is organized by one suffix(root) and nodes.  
 
 \section{Alerting}
-To inform the developer about the system, a tool is needed which is able to sends warnings about predefined system states.
-The alerting tool gets one or more error codes from the controller that is normally implemented into the database or visualization tool. Some tools combine with this codes the altering tool sends a warning or error message to all people involved. Most of the tools can send over multiple platforms. The most common are: E-Mail, SMS, telegram and slack. Many tools offer many the mentioned interface and provide a api to integrate other alerting types.\\
+To inform the developer about the system, a tool is needed which is able to send warnings about predefined system states.
+The alerting tool gets one or more error codes from the controller that is normally implemented into the database or visualization tool. Some tools combine these codes. The alerting tool then sends a warning or error message to all people involved. Most of the tools can send over multiple platforms. The most common are: E-Mail, SMS, Telegram and Slack. Many tools offer many of the mentioned interfaces and provide an api to integrate other alerting types.\\
 \\
-Often the developers don’t want to get just one alert with one message, so some of the alerting tool have the possibility to sort the alerts into groups. With this feature its possible to group cascading events that are triggered by failure. In some cases tools also supply a option to divide all alerts into critical alerts and warnings which can help the user to select the important massages.  
+Often the developers don’t want to get just one alert with one message, so some of the alerting tool have the possibility to group alerts. With this feature it is possible to group cascading events that are triggered by one failure. In some cases tools also supply an option to divide all alerts into critical alerts and warnings which can help the user to select the important messages.  
 
-\section{Monitoring enviroment}
-As many Monitoring tool are flexible to the environment we chose a specific setting for the tools to monitor there Cloud skills (Kubernetes). \cite{Vohra2016} 
+\section{Monitoring environment}
+As many monitoring tools are flexible to the environment we chose a specific setting for the tools to monitor cloud skills (Kubernetes). \cite{Vohra2016} 
 \subsection{Docker}
-Docker is a Open-Source software that virtualize Operation Systems (OS) with the concept on containers. That means that the application an the OS is build in too one file an can be deployed out of that file with the before defined settings. This file is called image. Docker also provides a collection of pre-build images on the page  \cite{Docker}. The software is as Kubernetes written in Go and under Apache License.
+Docker is an Open-Source software that virtualize Operation Systems (OS) with the concept of containers. That means that the application and the operating system is built in to one file and can be deployed out of that file with the before defined settings. This file is called an image. Docker also provides a collection of pre-built images on their page  \cite{Docker}. The software is as Kubernetes written in Go and under the Apache License.
 
 \subsection{Kubernetes}
-Kubernetes is a Open-Source system that provides a platform for container deployment and management. It strengthen are in the field of scaling and maintaining the deployed containers. Kubernetes can run on different host on the same time. The Kubernetes Master connects all the hosts together, to form one cluster out of them. The master also works as an interface for other systems to connect to the cluster. From the outside of the cluster its not visible on which node/nodes the application is running. This is realized by a load balancer which is also running on the Kubernetes master. Every Container in the cluster also runs a copy of cAdvisor (\ref{cadvisor}) which is very important for APM, because it collects data from the system like Cpu and Ram and provides them over an interface.
+Kubernetes is an Open-Source system that provides a platform for container deployment and management. Its strength is in the field of scaling and maintaining the deployed containers. Kubernetes can run on different hosts at the same time. The Kubernetes master connects all hosts together to form one cluster out of them. The master also works as an interface for other systems to connect to the cluster. From the outside of the cluster it is not visible on which node the application is running. This is realized by a load balancer which is also running on the Kubernetes master. Every container in the cluster also runs a copy of cAdvisor (\ref{cadvisor}) which is very important for APM, because it collects data from the system like CPU and RAM and provides them over an interface.
 \subsection{GO}
-Go is a Programming Language that is as Kubernetes designed, implemented and updated by the Google Inc.. The basic idea about the language is to simplify the syntax compared to c and c++ by preserving it network capability and extend them in the field of Cloud technologies. The language it self is capable of all modern concept such as Object Orientation and typification and parallelization. It was developed as an Open-Source Software in was first released in 2009.  
+Go is a programming language that is as Kubernetes designed, implemented and updated by the Google Inc.. The basic idea about the language is to simplify the syntax compared to c and c++ by preserving their network capability and extend them in the field of cloud technologies. The language itself is capable of all modern concepts such as object orientation and typification and parallelization. It was developed as an Open-Source Software and first released in 2009.  
 
 \subsection{Hardware}
-We were Testing all of the tools mentioned in the study on a 3 Nodes Kubernetes cluster. Every of the cluster nodes has a 4 Core Intel CPU with 2.3 GHz and 4 Megabytes of Cache . The nodes also have 8 Gigabytes of Ram  each to run on. The Virtual Machine is KVM which runes on a Fedora Linux.
+We were Testing all the tools in the study on a 3 nodes Kubernetes cluster. Any cluster node has a 4 Core Intel CPU with 2.3 GHz and 4 Megabytes of Cache . The nodes also have 8 Gigabytes of Ram  each. The virtual machine is KVM which runs on a Fedora Linux.
 
 \subsection{Sockshop}
 The sockshop is a demo-application for microservices, which can be used to test monitoring microservices. It takes up quite a lot of resources, considering it is a website with a small collection of scripts behind it. This makes the sockshop a very good demo-application, as it produces enough data to test monitoring applications, or simply show the ability of a cluster to handle such tasks.
-Sockshop features a slim but useful HTTP-based API which allows the system owner to retrieve or post data via his own scripts or microservices to complement the application or monitor data values from the inside.
+Sockshop features a slim but useful HTTP-based API which allows the system owner to retrieve or post data via its own scripts or microservices to complement the application or monitor data values from the inside.
 \subsubsection{Architecture}
-Sockshop is written in multiple languages. The Front-end is written in NodeJS to give the user a nice interface. A MySQL database is used to store all the items in the shop, which is especially useful when you have complex data sets for your products. To receive the data from the MySQL database an interface written in GO is used. 
+Sockshop is written in multiple languages. The Front-end is written in NodeJS to give the user a handy interface. A MySQL database is used to store all the items in the shop, which is especially useful when you have complex data sets for your products. To receive the data from the MySQL database an interface written in GO is used. 
 GO is also used for the retrieval of the users, which are stored in a Mongo database, as here no complex data structures with a lot of connections are needed.
 The cart of the shop uses Java to store its information inside a Mongo Database. 
-The order process is done via a Java / .NET Core pipeline, which stores the orders inside a MongoDB. The stored orders are then processed by yet another Java pipeline to determine which orders can be shipped.
+The order process is done via a Java / .NET Core pipeline, which stores the orders inside a MongoDB. The stored orders are then processed by another Java pipeline to determine which orders can be shipped.
 
  
 %Hier wird der Hauptteil stehen. Falls mehrere Kapitel gewünscht, entweder mehrmals \texttt{\textbackslash{}chapter} benutzen oder pro Kapitel eine eigene Datei anlegen und \texttt{ausarbeitung.tex} anpassen.
