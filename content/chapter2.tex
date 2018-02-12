@@ -65,8 +65,8 @@ Go is a programming language that is as Kubernetes designed, implemented and upd
 We were Testing all the tools in the study on a 3 nodes Kubernetes cluster. Any cluster node has a 4 Core Intel CPU with 2.3 GHz and 4 Megabytes of Cache . The nodes also have 8 Gigabytes of Ram  each. The virtual machine is KVM which runs on a Fedora Linux.
 
 \subsection{Sockshop}
-The sockshop is a demo-application for microservices, which can be used to test monitoring microservices. It takes up quite a lot of resources, considering it is a website with a small collection of scripts behind it. This makes the sockshop a very good demo-application, as it produces enough data to test monitoring applications, or simply show the ability of a cluster to handle such tasks.
-Sockshop features a slim but useful HTTP-based API which allows the system owner to retrieve or post data via its own scripts or microservices to complement the application or monitor data values from the inside.
+The sockshop is a demo-application for micro services, which can be used to test monitoring microservices. It takes up quite a lot of resources, considering it is a website with a small collection of scripts behind it. This makes the sockshop a very good demo-application, as it produces enough data to test monitoring applications, or simply show the ability of a cluster to handle such tasks.
+Sockshop features a slim but useful HTTP-based API which allows the system owner to retrieve or post data via its own scripts or micro services to complement the application or monitor data values from the inside.
 \subsubsection{Architecture}
 Sockshop is written in multiple languages. The Front-end is written in NodeJS to give the user a handy interface. A MySQL database is used to store all the items in the shop, which is especially useful when you have complex data sets for your products. To receive the data from the MySQL database an interface written in GO is used. 
 GO is also used for the retrieval of the users, which are stored in a Mongo database, as here no complex data structures with a lot of connections are needed.
