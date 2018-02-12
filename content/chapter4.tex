@@ -1,18 +1,16 @@
 % !TeX spellcheck = en_US
 \chapter{Evaluation} %Das ist nur ein Arbeitstitel
 % \useunder{\uline}{\ul}{}
-This chapter deals with the comparison of the tools by their responsibility. To explain some concepts, which we have seen a lot, we build an extra chapter (\cref{concepts}).
-Each table shows the supplier details by the type of tools. These were selected from the website of the tools and compared with chosen critical points.
-In all tables below we printed out with a $ \checkmark $ and a $ X $ if we can agree with the information by the developers.
-
-
+This chapter deals with the comparison of the tools by their responsibility. To explain some concepts, which we have seen a lot our research, we build an extra chapter (\cref{concepts}).
+Each table shows the details the developer gives. They are ordered by the responsibility of tools. The information show in the tables were from the website of the tool providers.
+In all tables below we printed out with a $ \checkmark $ and a $ X $ if we can agree with the information given by the developers.
 \section{Comparison of concepts}
 \label{concepts}
-In the course of this study we identified concepts to compare the tools. Most of them are self-explaining, which do not meet this requirement, are explained in more detail here.
+In the scope of this study we identified concepts to compare the tools. Most of them are self-explaining. The ones that are not self-explaining we listed below with a brief introduction.
 \subsection{Push/Pull}
 \label{push/pull}
-There are two basic concepts for the collectors, which are push and pull. First the push concept \cite{5557986} automatically starts sending data as soon the system and the tools are started. The data is send continuously when the status changes.
-Pull \cite{5557986} on the other hand sends requests to the active nodes. These requests are executed in certain intervals. These intervals can be modified and adjusted according to the system requirements.
+There are two basic concepts of the exchange of informations between the collector and the database. Here they named push and pull. Push \cite{5557986} is a concept, were the collector  automatically starts sending data to the database as soon the system is started. The data is send continuously when the status changes. Important is that the collector knows or discovers the data destination.
+Pull \cite{5557986} on the other hand means that the database sends requests to the active nodes. These requests are executed in certain intervals. These intervals can be modified and adjusted according to the system requirements. In this concept the database needs a discoverer to find all existing nodes
 \subsection{REST}
 \label{rest}
 Representational State Transfer is a programming paradigm for distributed systems. It describes a way, how services in special eb services interact with each other. Important concepts of REST are oose coupling, interoperability and scalability. Any data in REST is made persistent in resources. These resources are addressable over an Uniform Resource Identifier. \\

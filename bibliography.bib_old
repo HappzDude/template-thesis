@@ -1,0 +1,340 @@
+% Encoding: UTF-8
+
+%%%
+%
+%Beim Erstellen der Bibtex-Datei wird empfohlen darauf zu achten, dass die DOI aufgeführt wird.
+%
+%%%
+
+@BOOKLET{Docker,
+	editor = {{Docker, Inc.}},
+	title = {Docker},
+	url = {https://www.docker.com/},
+	lastchecked = {26.01.2018},
+	address = {San Francisco, CA 94107},
+}
+
+@BOOKLET{appscode,
+	editor = {{Appscode, Inc}},
+	title = {Appscode},
+	url = {https://appscode.com/},
+	lastchecked = {18.12.2017},
+	address = {San Leandro
+	CA 94578},
+}
+
+@BOOKLET{searchlight,
+	editor = {{Appscode, Inc}},
+	title = {searchlight},
+	url = {https://github.com/appscode/searchlight},
+	lastchecked = {20.12.2017},
+	address = {San Leandro
+	CA 94578},
+}
+@BOOKLET{slack,
+	editor = {{Slack Technologies }},
+	title = {Slack},
+	url = {https://slack.com},
+	lastchecked = {03.01.2018},
+	address = {},
+}
+@BOOKLET{twilio,
+	editor = {{Twilio, Inc}},
+	title = {Twilio},
+	url = {https://www.twilio.com/},
+	lastchecked = {20.12.2017},
+	address = {},
+}
+@BOOKLET{jodel,
+	editor = {{The Jodel Venture GmbH}},
+	title = {Jodel},
+	url = {https://jodel.com/},
+	lastchecked = {05.02.2018},
+	address = {10963 Berlin},
+}
+@BOOKLET{prometheus,
+	editor = {{ Cloud Native Computing Foundation }},
+	title = {Prometheus},
+	url = {https://prometheus.io/},
+	lastchecked = {20.01.2018},
+	address = {},
+}
+@BOOKLET{prometheus_kube,
+	editor = {{kayrus}},
+	title = {prometheus_kube},
+	url = {https://github.com/kayrus/prometheus-kubernetes},
+	lastchecked = {10.01.2018},
+	address = {},
+}
+@BOOKLET{zabbix,
+	editor = {{ Alexei Vladishev }},
+	title = {Zabbix},
+	url = {https://www.zabbix.com},
+	lastchecked = {15.01.2018},
+	address = {},
+}
+@BOOKLET{zabbix_kube,
+	editor = {{ Alexei Vladishev }},
+	title = {Zabbix_Kube},
+	url = {https://www.zabbix.com},
+	lastchecked = {15.01.2018},
+	address = {},
+}
+@BOOKLET{elasticsearch,
+	editor = {{Elastic}},
+	title = {Elasticsearch},
+	url = {https://www.elastic.co/},
+	lastchecked = {10.01.2018},
+	address = {},
+}
+@BOOKLET{heapster,
+	editor = {{Heapster}},
+	title = {Heapster},
+	url = {https://github.com/kubernetes/heapster},
+	lastchecked = {01.02.2018},
+	address = {},
+}
+@BOOKLET{influx_require,
+	editor = {{Influx}},
+	title = {Influx Requirements},
+	url = {https://docs.influxdata.com/influxdb/v0.10/guides/hardware_sizing/},
+	lastchecked = {01.02.2018},
+	address = {},
+}
+@BOOKLET{graphite,
+	editor = {{Graphite}},
+	title = {Graphite Kubernetes},
+	url = {https://github.com/nanit/kubernetes-graphite-cluster},
+	lastchecked = {11.12.2017},
+	address = {},
+}
+@BOOKLET{statsd,
+	editor = {{Graphite}},
+	title = {Graphite Kubernetes},
+	url = {https://github.com/etsy/statsd.git},
+	lastchecked = {11.12.2017},
+	address = {},
+}
+@BOOKLET{hipchat,
+	editor = {{Atlassian Corporation plc}},
+	title = {HipChat},
+	url = {https://de.atlassian.com/software/hipchat},
+	lastchecked = {11.02.2018},
+	address = {},
+}
+@BOOKLET{soundcloud,
+	editor = {{Soundcloud limited}},
+	title = {Soundcloud},
+	url = {https://soundcloud.com},
+	lastchecked = {11.02.2018},
+	address = {},
+}
+@BOOKLET{cacti,
+	editor = {{Cacti Group, Inc.}},
+	title = {Cacti},
+	url = {http://www.cacti.net},
+	lastchecked = {11.12.2017},
+	address = {},
+}
+
+@BOOKLET{opennms,
+	editor = {{OpenNMS Group}},
+	title = {OpenNMS},
+	url = {https://opennms.org/en},
+	lastchecked = {11.12.2017},
+	address = {},
+}
+@BOOKLET{munin,
+	editor = {{Munin Monitoring}},
+	title = {Munin},
+	url = {http://munin-monitoring.org},
+	lastchecked = {11.12.2017},
+	address = {},
+}
+@BOOKLET{hawkular,
+	editor = {{hawkular}},
+	title = {hawkular},
+	url = {www.hawkular.org},
+	lastchecked = {11.12.2017},
+	address = {},
+}
+@BOOKLET{opentsdb,
+	editor = {{OpenTSDB}},
+	title = {OpenTSDB},
+	url = {http://opentsdb.net/},
+	lastchecked = {11.12.2017},
+	address = {},
+}
+@BOOKLET{zipkin,
+	editor = {{Open Zipkin}},
+	title = {Zipkin},
+	url = {https://zipkin.io/},
+	lastchecked = {11.12.2017},
+	address = {},
+}
+@BOOKLET{prometeus,
+	editor = {{Prometheus}},
+	title = {Prometheus},
+	url = {https://prometheus.io/},
+	lastchecked = {10.01.2018},
+	address = {},
+}
+@BOOKLET{prometeus,
+	editor = {{Prometheus}},
+	title = {Prometheus},
+	url = {https://prometheus.io/},
+	lastchecked = {10.01.2018},
+	address = {},
+}
+@BOOKLET{grafana,
+	editor = {{Grafana Labs}},
+	title = {Grafana},
+	url = {https://grafana.com},
+	lastchecked = {10.01.2018},
+	address = {},
+}
+@BOOKLET{7,
+	editor = {{The Icinga Project}},
+	title = {Icinga},
+	url = {https://www.icinga.com/},
+	lastchecked = {11.02.2018},
+	address = {90429 Nuremberg},
+}
+
+@article{Ruthardt,
+	author = {Ruthardt, Jan},
+	file = {:home/paul/template-thesis/paper/paper.pdf:pdf},
+	keywords = {cloud-computing,iaas,rest},
+	title = {{Jan Ruthardt}}
+}
+
+@article{Marik2014,
+author = {Marik, Ondrej and Zitta, Stanislav},
+doi = {10.1109/ICMCS.2014.6911307},
+file = {:home/paul/template-thesis/paper/06911307.pdf:pdf},
+isbn = {978-1-4799-3824-7},
+journal = {2014 International Conference on Multimedia Computing and Systems (ICMCS)},
+keywords = {Cacti,Nagios,SCOM,Zabbix,cacti,comparison,monitoring systems,nagios,scom,testing,zabbix},
+mendeley-groups = {Fachstudie},
+pages = {563--568},
+title = {{Comparative analysis of monitoring system for data networks}},
+url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=6911307},
+year = {2014}
+}
+
+
+@article{Krintz,
+abstract = {1. ABSTRACT In this paper, we overview the design and implementa-tion of a new approach to Application Performance Moni-toring (APM) for Cloud Platforms-as-a-service (PaaS). Our approach couples and integrates full stack performance mon-itoring and analysis into the PaaS system itself for compre-hensive introspection. To enable this, we employ lightweight and intelligent sensors and agents and " pluggable " data anal-ysis modules that facilitate service level objectives (SLOs) for application response time, application-specific perfor-mance anomaly detection and root cause analysis, and work-load change point detection. We implement our APM by combining the popular Elastic Stack with other common PaaS services in a way that is portable so that it can be integrated easily into public and private PaaS systems. 2. INTRODUCTION Over the past decade Platform-as-a-Service (PaaS) has become a popular approach used by enterprises, institutions, and developers for deploying web-accessible applications in the cloud [25]. The PaaS abstraction effectively hides ex-ecution details such as physical resource allocation (CPU, memory, disk etc), service ecosystem management, the op-erating system, and the network configuration. PaaS clouds also automate load balancing and resource scaling, and pro-vide high availability and fault tolerance of PaaS compo-nents and services. As a result, PaaS enables application developers to focus on the programming and innovation as-pects of their applications, without having to be concerned about deployment and system issues. The wide spread use of PaaS technology has intensified the need for new techniques to monitor applications de-ployed in a PaaS cloud. Monitoring is key for facilitating effective auto-scaling and resource utilization, for maintain-ing high availability, for managing multi-tenancy (multiple applications sharing resources), and for identifying perfor-mance bugs in both the applications and the PasS itself. To extract sufficient operational insight in order to drive this functionality requires that the performance data collected be extensive and comprehensive. At the same time, collec-tion of this data must be low-overhead and not perturb the performance and behavior of the system significantly. Thus the key to any successful Application Performance Monitor-ing (APM) system must effectively navigate this tension and its associated trade-offs. Toward this end, we propose a new design for PaaS APMs that can be easily integrated within most PaaS systems. Our Cloud APM is not an external system that monitors a PaaS cloud from the outside (which most APM systems do today [22, 5, 7]). Rather, it integrates with the PaaS cloud thereby leveraging and augmenting the existing com-ponents of the PaaS cloud to provide comprehensive, full-stack monitoring, analytics, and visualization capabilities. We believe that this design choice is a key differentiator over existing PaaS and cloud application monitoring sys-tems because it enables us to take advantage of the scal-ing, efficiency, services, fault tolerance, security, and control features that PaaS systems currently offer, while providing scalable, low overhead end-to-end monitoring and analysis of cloud applications. This paper overviews our Cloud APM architecture and de-scribes its PaaS integration. We discuss the individual com-ponents of our Cloud APM and how they interact. Where appropriate, we also detail the concrete technologies (tools and products) that we use to implement various components of the Cloud APM, and provide our rationale and intuition behind the use of these technologies.},
+author = {Krintz, Chandra and Wolski, Rich and Jayathilaka, Hiranya and Lin, Wei-Tsung},
+file = {:home/paul/template-thesis/paper/c32a7245bdc863fda0f6a3a7bfd6e1e45438.pdf:pdf},
+mendeley-groups = {Fachstudie},
+title = {{Cloud Application Performance Monitoring}}
+}
+@article{Medel2016,
+abstract = {Containers are rapidly replacing Virtual Machines (VMs) as the compute instance of choice in cloud-based deployments. The significantly lower overhead of deploying containers (compared to VMs) has often been cited as one reason for this. We analyse performance of the Kubernetes system and develop a Reference net-based model of resource management within this system. Our model is characterised using real data from a Kubernetes deployment, and can be used as a basis to design scalable applications that make use of Kubernetes.},
+author = {Medel, V{\'{i}}ctor and Rana, Omer},
+doi = {10.1145/2996890.3007869},
+file = {:home/paul/template-thesis/paper/p257-medel.pdf:pdf},
+isbn = {9781450346160},
+journal = {Proceedings of the 9th International Conference on Utility and Cloud Computing - UCC'16},
+keywords = {containers,performance model,resource management},
+mendeley-groups = {Fachstudie},
+pages = {257--262},
+title = {{Modelling Performance {\&} Resource Management in Kubernetes}},
+year = {2016}
+}
+@article{Systems2018,
+author = {Systems, Control},
+file = {:home/paul/template-thesis/paper/ntitu12.pdf:pdf},
+mendeley-groups = {Fachstudie},
+number = {1},
+pages = {91--98},
+title = {{Math-Net.Ru}},
+volume = {1},
+year = {2018}
+}
+@article{Hernantes2015,
+abstract = {Zabbix},
+author = {Hernantes, Josune and Gallardo, Gorka and Serrano, Nicol{\'{a}}s},
+doi = {10.1109/MS.2015.96},
+file = {:home/paul/template-thesis/paper/07140697.pdf:pdf},
+issn = {0740-7459},
+journal = {the Ieee Computer Society},
+mendeley-groups = {Fachstudie},
+pages = {88--93},
+title = {{IT Infrastructure- Monitoring Tools}},
+year = {2015}
+}
+@book{Vohra2016,
+abstract = {The book is about Kubernetes, a container cluster manager. The book discusses all aspects of using Kubernetes in applications. Starting with installing Kubernetes on a single node, the book introduces Kubernetes with a simple Hello example and discusses using environment variables in Kubernetes. Next, the book discusses using Kubernetes with all major groups of technologies such as relational databases, NoSQL databases, and in the Apache Hadoop ecosystem. The book concludes with using multi container Pods and installing Kubernetes on a multi node cluster. No other book on using Kubernetes - beyond simple introduction - is available in the market. Specifically, you'll learn the following: How to install Kubernetes on a single node How to install Kubernetes on a multi-node cluster How to set environment variables How to create a multi-container pod How to use volumes How to use Kubernetes with Apache Hadoop Ecosystem How to use Kubernetes with NoSQL Databases How to use Kubernetes with RDBMS.},
+author = {Vohra, Deepak},
+doi = {10.1007/978-1-4842-1907-2},
+file = {:home/paul/template-thesis/paper/10.1007{\_}978-1-4842-1907-2.pdf:pdf},
+isbn = {978-1-4842-1906-5},
+issn = {0884-741X},
+mendeley-groups = {Fachstudie},
+pmid = {24798474},
+title = {{Kubernetes Microservices with Docker}},
+url = {http://link.springer.com/10.1007/978-1-4842-1907-2},
+year = {2016}
+}
+
+@inproceedings{cau37427,
+       booktitle = {Proceedings of the 8th ACM/SPEC International Conference on Performance Engineering (ICPE '17)},
+           title = {Application Performance Management: State of the Art and Challenges for the Future},
+          author = {Christoph Heger and Andre van Hoorn and Mario Mann and Dusan Okanovic},
+       publisher = {ACM},
+            year = {2017},
+             url = {http://eprints.uni-kiel.de/37427/},
+        abstract = {The performance of application systems has a direct impact on business metrics. For example, companies lose customers and revenue in case of poor performance such as high response times. Application performance management (APM) aims to provide the required processes and tools to have a continuous and up-to-date picture of relevant performance measures during operations, as well as to support the detection and resolution of performance-related incidents.
+
+In this tutorial paper, we provide an overview of the state of the art in APM in industrial practice and academic research, highlight current challenges, and outline future research directions.}
+}
+
+@inproceedings{5557986, 
+	author={H. Huang and L. Wang}, 
+	booktitle={2010 IEEE 3rd International Conference on Cloud Computing}, 
+	title={P amp;P: A Combined Push-Pull Model for Resource Monitoring in Cloud Computing Environment}, 
+	year={2010}, 
+	volume={}, 
+	number={}, 
+	pages={260-267}, 
+	keywords={grid computing;resource allocation;cloud computing environment;combined push-pull model;grid computing;pull model;push model;resource monitoring;Adaptation model;Cloud computing;Clouds;Computational modeling;Grid computing;Load modeling;Monitoring}, 
+	doi={10.1109/CLOUD.2010.85}, 
+	ISSN={2159-6182}, 
+	month={July},}
+
+@book{Bass:2015:DSA:2810087,
+ author = {Bass, Len and Weber, Ingo and Zhu, Liming},
+ title = {DevOps: A Software Architect's Perspective},
+ year = {2015},
+ isbn = {0134049845, 9780134049847},
+ edition = {1st},
+ publisher = {Addison-Wesley Professional},
+}
+@misc{Devops,
+	author = {Tricentis GmbH},
+	title = {{Tricentis-What is continuous testing}},
+	howpublished = "\url{https://www.tricentis.com/what-is-continuous-testing/}", 
+	year = {2018}, 
+	note = "[Online; accessed 05-February-2018]"
+}
+
+@INPROCEEDINGS{1687567,
+	author={G. Khanna and K. Beaty and G. Kar and A. Kochut},
+	booktitle={2006 IEEE/IFIP Network Operations and Management Symposium NOMS 2006},
+	title={Application Performance Management in Virtualized Server Environments},
+	year={2006},
+	volume={},
+	number={},
+	pages={373-381},
+	keywords={business communication;computer network management;virtual enterprises;virtual machines;application performance management;business processes;server sprawl;trigger migration;virtual machines;virtualized server environments;Application software;Application virtualization;Costs;Environmental management;Network servers;Operating systems;Platform virtualization;Storage area networks;Virtual machine monitors;Virtual machining;Application performance management;virtual machine migration;virtual server},
+	doi={10.1109/NOMS.2006.1687567},
+	ISSN={1542-1201},
+	month={April},}
+
+@www{test,
+	author = {test author},
+	title = {test titel},
+	url = {www.xxx.html},}
+
