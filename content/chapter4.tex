@@ -1,78 +1,84 @@
 % !TeX spellcheck = en_US
 \chapter{Evaluation} %Das ist nur ein Arbeitstitel
 % \useunder{\uline}{\ul}{}
-\section{Supplier details of the tools}
-Each table shows the supplier details by the type of tools. These were selected from the website of the tools and compared with chosen critical points. The \cref{tab:Collector} compares different collector tools. Primary how the logs and metrics are transferred to the databases. The second \cref{tab:Database} shows the databases. They are compared by security, type and if they can store multiple data points at one time stamp. \\
-The next \cref{tab:Visualization} collates the different visualization tools. One aspect is the security of the tool. Furthermore what kind of graphs the tools can display. The last \cref{tab:Alerting} and \cref{tab:Alertingcont} compares the altering tools. What kind of alerts can be send, are the alerts self create able and if the type of some alerts are similar, is it possible to group them.
-
+This chapter deals with the comparison of the tools by their responsibility. To explain some concepts, which we have seen a lot, we build an extra chapter (\cref{concepts}).
+Each table shows the supplier details by the type of tools. These were selected from the website of the tools and compared with chosen critical points.
 In all tables below we printed out with a $ \checkmark $ and a $ X $ if we can agree with the information by the developers.
 
+\section{Comparison of concepts}
+\label{concepts}
+In the course of this study we identified concepts to compare the tools. Most of them are self-explaining, which do not meet this requirement, are explained in more detail here.
+\subsection{Push/Pull}
+\label{push/pull}
+There are two basic concepts for the collectors, which are push and pull. First the push concept \cref{5557986} automatically starts sending data as soon the system and the tools are started. The data is send continuously when the status changes.
+Pull \cref{5557986} on the other hand sends requests to the active nodes. These requests are executed in certain intervals. These intervals can be modified and adjusted according to the system requirements.
+\subsection{REST}
+\label{rest}
+Representational State Transfer is a programming paradigm for distributed systems. It describes a way, how services in special eb services interact with each other. Important concepts of REST are oose coupling, interoperability and scalability. Any data in REST is made persistent in resources. These resources are addressable over an Uniform Resource Identifier. \\
+To make an interface RESTful, it has to provide all HTTP methods like GET, PUT, POST, OPTIONS within a well known data format as XML or JSON.
 
-\begin{table}
+
+\section{Collector}
+The \cref{tab:Collector} compares the different collector tools tested in this paper. The tools are compared by RESTful (\cref{rest}), Multiple(Multi.) Input Formats, Plug-ins for own data and Push/Pull (\cref{push/pull}) Primary how the logs and metrics are transferred to the databases.
+\begin{table}[H]
 \centering
-\begin{tabular}{p{3cm}cccc}
+\begin{tabular}{lcccc}
 \hline
-Tool & RESTful & Multiple Input Formats      & Plugins for own data        & Push / Pull \\
+Tool & RESTful & Multi. Input Formats      & Plug-ins for own data        & Push / Pull \\
 \hline
 Telegraf    & Yes ($ \checkmark $) & Yes    & Yes    &Pull    ($ \checkmark $)  \\
 Beats  & Yes ($ \checkmark $)  & Yes & Yes  & Push ($ \checkmark $) \\
 Logstash & Yes ($ \checkmark $)  & No & Yes & Push/Pull($\checkmark$)                         \\
-Icinga2(Plugins)  & No  & No  & Yes  & Push \\
-Prometheus(Client)  & No  & No  & Yes  & Pull ($ \checkmark $)/ Push\\
-Zabbix(Agent) & No  & No  & No  & Both \\
+Icinga2  & No  & No  & Yes  & Push \\
+Prometheus  & No  & No  & Yes  & Pull ($ \checkmark $)/ Push\\
+Zabbix & No  & No  & No  & Both \\
 \hline                        
 \end{tabular}
-
-\caption{Collectortable - All tested collector tools are listed and compared}
+\caption{Collector-table - All tested collector tools are listed and compared}
 \label{tab:Collector}
-
 \end{table}
 
-
-% Please add the following required packages to your document preamble:
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}
+\section{Database}
+\cref{tab:Database} shows the databases. First we checked if the tools have an authentication to the content. Furthermore we have selected the tools according to times-series-database. In addition to that, if there are several datasets at one time stamp. \\
+\begin{table}[H]
 \centering
-
-\begin{tabular}{p{3cm}p{3cm}p{3cm}c}
+\begin{tabular}{lccc}
 	\hline
-Tool & Database-Authentication     & Timestamp-Database          & Multiple Data Points        \\
+Tool & Database-Authentication     & Time-Series-Database          & Multi. Data Points        \\
 \hline
 InfluxDB  & Yes ($ \checkmark $) & Yes ($ \checkmark $)  & Yes ($ \checkmark $)\\
-Elasticsearch & https ($ \checkmark $) and credentials ($ X $) & Yes ($ \checkmark $) & Yes ($ \checkmark $)\\
-Icinga2(Server) & Yes ($ \checkmark $) & Yes ($ \checkmark $) & Yes ($ \checkmark $) \\
-Prometheus(Master)& No & Yes ($ \checkmark $) & Yes ($ \checkmark $)\\
-Zabbix(Master)& Yes ($ \checkmark $) & Yes ($ \checkmark $) & Yes ($ \checkmark $)\\
+Elasticsearch & https ($ \checkmark $), credentials ($ X $) & Yes ($ \checkmark $) & Yes ($ \checkmark $)\\
+Icinga2 & Yes ($ \checkmark $) & Yes ($ \checkmark $) & Yes ($ \checkmark $) \\
+Prometheus& No & Yes ($ \checkmark $) & Yes ($ \checkmark $)\\
+Zabbix& Yes ($ \checkmark $) & Yes ($ \checkmark $) & Yes ($ \checkmark $)\\
 \hline
 \end{tabular}
-\caption{Databasetable - All tested database tools are listed and compared}
+\caption{Database-table - All tested database tools are listed and compared}
 \label{tab:Database}
 \end{table}
 
-% Please add the following required packages to your document preamble:
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table} 
+\section{Visualization}
+\cref{tab:Visualization} compares the different visualization tools. One aspect is the security of the tool, this is compared by LDAP-Authentication (\cref{ldap}). In general the tools are tested on the base of the graphs that they can display. We tested if they are scalable and it is possible to show multiple graphs in one. 
+\begin{table}[H] 
 \centering
-
-\begin{tabular}{cccc}
+\begin{tabular}{lccc}
 	\hline
-Tool & LDAP-Authetication         & Scalable Graphs             & Overlapping Graphs          \\
+Tool & LDAP-Authentication         & Scalable graphs             & Overlapping graphs          \\
 \hline
 Chronograf & No & Yes & Yes \\
 Kibana & Yes ($ \checkmark $) & Yes ($ \checkmark $) & Yes ($ \checkmark $)\\
 Grafana & Yes ($ \checkmark $) & Yes ($ \checkmark $) & Yes ($ \checkmark $)\\
-Zabbix(Master) & Yes ($ \checkmark $) & Yes ($ \checkmark $)  & Yes  ($ \checkmark $)\\
+Zabbix & Yes ($ \checkmark $) & Yes ($ \checkmark $)  & Yes  ($ \checkmark $)\\
 \hline
 \end{tabular}
-\caption{Visualizationtable - All tested visualization tools are listed and compared}
+\caption{Visualization-table - All tested visualization tools are listed and compared}
 \label{tab:Visualization}
 \end{table}
 
-\begin{table}
+\section{Alerting}
+The last \cref{tab:Alerting} and \cref{tab:Alertingcont} compares the altering tools. These tools were tested if they can send HTTP requests. Moreover, when many identical alerts arrive, whether they are groupable. Furthermore we tested the most common messaging tools for sending alerts and if the tools offer an interface to integrate any third-party-tool for messaging. Finally, the tools have been tested for triggering events like scripts when an alert is received.
+\begin{table}[H]
 	\centering
-	
 	\begin{tabular}{lcccc}
 		\hline
 Tool & HTTP requests & Grouping of alerts & E-Mail & Messangers \\
@@ -80,18 +86,18 @@ Tool & HTTP requests & Grouping of alerts & E-Mail & Messangers \\
 Kapacitor & Yes  & No & Yes & Yes \\
 Elastalert & No & No & Yes ($ \checkmark $) & Yes ($ \checkmark $) \\
 Grafana & Yes ($ \checkmark $) & Yes ($ \checkmark $) & Yes ($ \checkmark $) & Yes ($ \checkmark $) \\
-Zabbix(Master) & Yes ($ \checkmark $) & Yes ($ \checkmark $) & Yes ($ \checkmark $) & Yes ($ \checkmark $) \\
+Zabbix & Yes ($ \checkmark $) & Yes ($ \checkmark $) & Yes ($ \checkmark $) & Yes ($ \checkmark $) \\
 Prometheus & Yes ($ \checkmark $) & Yes ($ X $) & Yes ($ X $) & Yes ($ X $)\\
 		\hline
 	\end{tabular}
-	\caption{Alertingtable - All tested alerting tools are listed and compared}
+	\caption{Alerting-table - All tested alerting tools are listed and compared}
 	\label{tab:Alerting}
 \end{table}
 
 % Please add the following required packages to your document preamble:
 % \usepackage[table,xcdraw]{xcolor}
 % If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}
+\begin{table}[H]
 	\centering
 	\begin{tabular}{lcc}
 		\hline
@@ -100,10 +106,10 @@ Prometheus & Yes ($ \checkmark $) & Yes ($ X $) & Yes ($ X $) & Yes ($ X $)\\
 		Kapacitor                    & Yes ($ \checkmark $)       & No\\
 		Elastalert                   & Yes ($ \checkmark $) & No\\
 		Grafana                      & Yes ($ \checkmark $)          & Yes ($ \checkmark $)\\
-		Zabbix (Master) & Yes ($ \checkmark $) & Yes ($ \checkmark $)\\
+		Zabbix  & Yes ($ \checkmark $) & Yes ($ \checkmark $)\\
 		Prometheus & Yes ($ \checkmark $) & No \\
 		\hline 
 	\end{tabular}
-	\caption{Alertingtable - \cref{tab:Alerting} cont.}
+	\caption{Alerting-table - \cref{tab:Alerting} cont.}
 	\label{tab:Alertingcont}
 \end{table}
