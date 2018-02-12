@@ -57,7 +57,7 @@ The tool Zabbix is an open-source tool and is developed by Zabbix LLC (Limited L
 \subsection{Installation}
 There is an repository from monitoringartist \cite{zabbix_kube} that provides diverse yaml files, that map the Zabbix client and server on a cluster structure. The single modules are scalable by the user afterwards in the Cluster. By default 3 copies of the database engine and web user interface are deployed. In the repository are two types of Zabbix deployment. The first we tested uses a load balancer the second one uses the cloud network balancing engine from Google.
 \subsection{Appearance}%Only for Visual tools
-Zabbix come with a withe and blue web interface with some red accents. It implements a tab system with subtabs to navigate through the interface. The naming of the tabs is not as self explaining as it could be.  
+Zabbix come with a withe and blue web interface with some red accents. It implements a tab system with sub tabs to navigate through the interface. The naming of the tabs is not as self explaining as it could be.  
 \subsection{Performance}
 The general performance of Zabbix is very good. The three parts take up to 1GB of RAM of the System and about 0.5 \% of the processor load. The minimum requirements of Zabbix are specified with Pentium 2 of 350Mhz and 256MB of Ram \cite{Marik2014}.
 \subsection{Interoperability}
@@ -68,10 +68,10 @@ Zabbix is one of the best optimized and extended open-source solutions available
 \section{ELK Stack }
 \label{elk} % to refernce in the document
 The ELK stack is developed by elastic \cite{elasticsearch}. 
-The stack is a logging tool which is developed java and divided up into three parts. First  logstash and beats with there sub tools like metric beat or Heartbeat for collecting. Second Elasticsearch which queries the data and makes them persistent and last Kibana the visualization tool of the stack.
+The stack is a logging tool which is developed java and divided up into three parts. First  logstash and beats with there sub tools like Metric beat or Heartbeat for collecting. Second Elasticsearch which queries the data and makes them persistent and last Kibana the visualization tool of the stack.
 \subsection{Logstash/Beats}
 Logstash is by elastic described as an 
-"server-side data processing pipeline"\cite{elasticsearch}. These pipelines a able to process nearly every data (github webhooks, http push/poll, irc, imap ,....).
+"server-side data processing pipeline"\cite{elasticsearch}. These piplines a able to process nearly every data (github webhooks, http push/poll, irc, imap ,....).
 While collecting the data Logstash already transforms it into data structures for better retrieval.
 Beats is a "single-purpose data shipper"\cite{elasticsearch} and more what we understand under the term Collector
 \subsection{Elasticsearch}
@@ -83,7 +83,7 @@ Kibana offers a lot of different graphs including classic line graphs, data tabl
 \subsection{Installation}
 ELK Stack is deployable at the Kubernetes cluster. There is a solution on github provided by Kubernetes. After the installation there 
 \subsection{Appearance}%Only for Visual tools
-Kibana is the only tool in the complete Stack with a user interface. It is accessible over the homepage of the application. The site is starting with a discover page, where all logs are listed in a time chronological order. The discover page also allows to filter these logs by key words. On the leftside is the sidebar with management, devtools, visualize, time line, discoverer and dashboard. The dashboard tab, is for creating an own dashboard with the own preferences.
+Kibana is the only tool in the complete Stack with a user interface. It is accessible over the homepage of the application. The site is starting with a discover page, where all logs are listed in a time chronological order. The discover page also allows to filter these logs by key words. On the left side is the sidebar with management, devtools, visualize, time line, discoverer and dashboard. The dashboard tab, is for creating an own dashboard with the own preferences.
 \subsection{Performance}
 The tool stack ELK is booting very fast. As seen in the \cref{fig:ELK_CPU}, the CPU usage is very high at the start, but when all is up, it is running on low CPU usage. At the start the RAM consumption is low but when it starts collecting log data's the amount of used RAM is growing very fast (\cref{fig:ELK_MEM}). The growth was so fast, that our Kubernetes cluster broke after a view days because the server was out of memory.
 \begin{figure}
@@ -131,8 +131,8 @@ Grafana is by far the best and biggest visualization tool on the open-source mar
 \label{tick}
 TICK is a Monitoring Stack provided by the InfluxData company and is under MIT License which is an Permissive software license.
 \subsection{Telegraf}
-Telegraf is the data collector of the TICK stack by Influxdata and is written entirely in GO. It is a lightweight data collector as it needs specific plugins for metrics to be collected. These can be chosen by the user as needed for the system. It has official input plugins for many servers including Apache, Cassandra, Kubernetes, MySQL.
-The outputs are also handled by plug ins. This allows the user to send the metrics to almost any endpoint as there is a broad variety of plug ins. As with the input plug ins, there is also a broad variety of output plug ins including for Influxdatas own InfluxDB, Elasticsearch(\ref{Elasticsearch}) from the ELK Stack, Prometheus(\ref{Prometheus}). It also supports more primitive outputs like writing to file or TCP/UDP Socket.
+Telegraf is the data collector of the TICK stack by Influxdata and is written entirely in GO. It is a lightweight data collector as it needs specific plugins for metrics to be collected. These can be chosen by the user as needed for the system. It has official input plug ins for many servers including Apache, Cassandra, Kubernetes, MySQL.
+The outputs are also handled by plug ins. This allows the user to send the metrics to almost any endpoint as there is a broad variety of plug ins. As with the input plug ins, there is also a broad variety of output plugins including for Influxdatas own InfluxDB, Elasticsearch(\ref{Elasticsearch}) from the ELK Stack, Prometheus(\ref{Prometheus}). It also supports more primitive outputs like writing to file or TCP/UDP Socket.
 \subsection{InfluxDB}
 InfluxDB is the time-series database from the TICK stack by Influxdata. It is written in GO and available as a single binary with no external dependencies. This makes the installation, as either a standalone database or as a Kubernetes pod, simple.
 By default it supports their own collector, Telegraf, but other collectors are supported via plug ins. The data can be written with their  HTTP/S API using it is own SQL-like query language, InfluxQL, which also gives the option of creating your own interfaces.
@@ -141,11 +141,11 @@ To minimize storage consumption data will be down sampled over time. The recent 
 Chronograf is the Visualization Tool of the TICK Stack by Influxdata. It comes with a web interface to display all the data collected by Telegraf. Data can be visualized in different graph-types including single and stack line graphs, Step-Plot, Single stat and bar graphs. It comes with a lot of pre-configured dashboards for all the applications which are also officially supported by Telegraf, though it is also possible to create your own dashboards or modify the existing ones. 
 Chronograf also features a UI for Influxdatas own alerting tool Kapacitor, which allows the management of both tools in one interface.
 \subsection{Kapacitor}
-Kapacitor is the Alerting Tool of the TICK Stack by Influxdata. Various alerts can already be defined when using Chronograf with Kapacitor including static thresholds, percentage values and Deadman switches. It also supports more complex alert conditions via TICK scripts which have to be defined in Kapacitor directly.
+Kapacitor is the Alerting Tool of the TICK Stack by Influxdata. Various alerts can already be defined when using Chronograf with Kapacitor including static thresholds, percentage values and Deadman switches. It also supports more complex alert conditions via TICKscripts which have to be defined in Kapacitor directly.
 The alerts it self can then be sent to various endpoints like HipChat, Pagerduty, Pushover, Slack, Telegram and many more. It also supports more simplistic endpoints like file outputs, TCP sockets or HTTP Post.
 Kapacitor does not feature a web interface as it is meant to be used with Chronograf which already has a UI component for Kapacitor. It can be used without this interface via console inputs.
 \subsection{Installation}
-The installation of the TICK stack in special Telegraf and Influxdb is very simple. A possible portation of the tool is delivered by the developer of Kubernetes in there github repository Heapster \cite{heapster}. Heapster is used by the stack to collect the monitoring information of the pods in one place.
+The installation of the TICK stack in special Telegraf and Influxdb is very simple. A possible portation of the tool is delivered by the developer of Kubernetes in there Github repository Heapster \cite{heapster}. Heapster is used by the stack to collect the monitoring information of the pods in one place.
 \subsection{Appearance}
 Only Chronograf provides a web interface for the user. The interface is in blue withe combination and contains a lot of black. The menu is located on an left sidebar but there are only symbols. On hover the text appears and shows further informations for navigation. It offers a graphical way to inject alerts into Kibana.
 
@@ -175,5 +175,5 @@ Graphite is mainly for storing and graphing data and metrics, but brings also to
 \label{Icinga}
 Icinga is as ELK-Stack not a monitoring tool. Its made for logging defined requests. The administrator can decide which system to monitor and in what interval the data is pulled.
 Icinga it self only provides 3 system states instead of exact values. The states are OK/warning and error. The user decides at which point they are triggered.\\
-As we tried to install Icinga we found out that there was no direct support from Incinga for Kubernetes. As our Study only describes the actual state without trying to add something we decided not to try an compile Icinga into Kubernetes on our own. Later we found out there is a third party Software called searchlight \ref{searchlight} which is provided by appscode on github.
+As we tried to install Icinga we found out that there was no direct support from Incinga for Kubernetes. As our Study only describes the actual state without trying to add something we decided not to try an compile Icinga into Kuberntes on our own. Later we found out there is a third party Software called searchlight \ref{searchlight} which is provided by Appscode on Github.
  
