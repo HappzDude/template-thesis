@@ -221,6 +221,8 @@ title = {{Comparative analysis of monitoring system for data networks}},
 url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=6911307},
 year = {2014}
 }
+
+
 @article{Krintz,
 abstract = {1. ABSTRACT In this paper, we overview the design and implementa-tion of a new approach to Application Performance Moni-toring (APM) for Cloud Platforms-as-a-service (PaaS). Our approach couples and integrates full stack performance mon-itoring and analysis into the PaaS system itself for compre-hensive introspection. To enable this, we employ lightweight and intelligent sensors and agents and " pluggable " data anal-ysis modules that facilitate service level objectives (SLOs) for application response time, application-specific perfor-mance anomaly detection and root cause analysis, and work-load change point detection. We implement our APM by combining the popular Elastic Stack with other common PaaS services in a way that is portable so that it can be integrated easily into public and private PaaS systems. 2. INTRODUCTION Over the past decade Platform-as-a-Service (PaaS) has become a popular approach used by enterprises, institutions, and developers for deploying web-accessible applications in the cloud [25]. The PaaS abstraction effectively hides ex-ecution details such as physical resource allocation (CPU, memory, disk etc), service ecosystem management, the op-erating system, and the network configuration. PaaS clouds also automate load balancing and resource scaling, and pro-vide high availability and fault tolerance of PaaS compo-nents and services. As a result, PaaS enables application developers to focus on the programming and innovation as-pects of their applications, without having to be concerned about deployment and system issues. The wide spread use of PaaS technology has intensified the need for new techniques to monitor applications de-ployed in a PaaS cloud. Monitoring is key for facilitating effective auto-scaling and resource utilization, for maintain-ing high availability, for managing multi-tenancy (multiple applications sharing resources), and for identifying perfor-mance bugs in both the applications and the PasS itself. To extract sufficient operational insight in order to drive this functionality requires that the performance data collected be extensive and comprehensive. At the same time, collec-tion of this data must be low-overhead and not perturb the performance and behavior of the system significantly. Thus the key to any successful Application Performance Monitor-ing (APM) system must effectively navigate this tension and its associated trade-offs. Toward this end, we propose a new design for PaaS APMs that can be easily integrated within most PaaS systems. Our Cloud APM is not an external system that monitors a PaaS cloud from the outside (which most APM systems do today [22, 5, 7]). Rather, it integrates with the PaaS cloud thereby leveraging and augmenting the existing com-ponents of the PaaS cloud to provide comprehensive, full-stack monitoring, analytics, and visualization capabilities. We believe that this design choice is a key differentiator over existing PaaS and cloud application monitoring sys-tems because it enables us to take advantage of the scal-ing, efficiency, services, fault tolerance, security, and control features that PaaS systems currently offer, while providing scalable, low overhead end-to-end monitoring and analysis of cloud applications. This paper overviews our Cloud APM architecture and de-scribes its PaaS integration. We discuss the individual com-ponents of our Cloud APM and how they interact. Where appropriate, we also detail the concrete technologies (tools and products) that we use to implement various components of the Cloud APM, and provide our rationale and intuition behind the use of these technologies.},
 author = {Krintz, Chandra and Wolski, Rich and Jayathilaka, Hiranya and Lin, Wei-Tsung},
@@ -289,6 +291,19 @@ year = {2016}
 In this tutorial paper, we provide an overview of the state of the art in APM in industrial practice and academic research, highlight current challenges, and outline future research directions.}
 }
 
+@inproceedings{5557986, 
+	author={H. Huang and L. Wang}, 
+	booktitle={2010 IEEE 3rd International Conference on Cloud Computing}, 
+	title={P amp;P: A Combined Push-Pull Model for Resource Monitoring in Cloud Computing Environment}, 
+	year={2010}, 
+	volume={}, 
+	number={}, 
+	pages={260-267}, 
+	keywords={grid computing;resource allocation;cloud computing environment;combined push-pull model;grid computing;pull model;push model;resource monitoring;Adaptation model;Cloud computing;Clouds;Computational modeling;Grid computing;Load modeling;Monitoring}, 
+	doi={10.1109/CLOUD.2010.85}, 
+	ISSN={2159-6182}, 
+	month={July},}
+
 @book{Bass:2015:DSA:2810087,
  author = {Bass, Len and Weber, Ingo and Zhu, Liming},
  title = {DevOps: A Software Architect's Perspective},
@@ -318,15 +333,4 @@ In this tutorial paper, we provide an overview of the state of the art in APM in
 	ISSN={1542-1201},
 	month={April},}
 
-@INPROCEEDINGS{5557986,
-	author={H. Huang and L. Wang},
-	booktitle={2010 IEEE 3rd International Conference on Cloud Computing},
-	title={P amp;P: A Combined Push-Pull Model for Resource Monitoring in Cloud Computing Environment},
-	year={2010},
-	volume={},
-	number={},
-	pages={260-267},
-	keywords={grid computing;resource allocation;cloud computing environment;combined push-pull model;grid computing;pull model;push model;resource monitoring;Adaptation model;Cloud computing;Clouds;Computational modeling;Grid computing;Load modeling;Monitoring},
-	doi={10.1109/CLOUD.2010.85},
-	ISSN={2159-6182},
-	month={July},}
+
