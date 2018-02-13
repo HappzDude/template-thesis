@@ -1,7 +1,16 @@
 % !TeX spellcheck = en_US
 
 \chapter{Conclusion}\label{chap:conclusion}
+At the beginning of this paper we asked the question which monitoring tools are the best.
+In \cref{result} we want to answer this question. In the \cref{generaltrends} an overview of the often use methods is given. At the end in \cref{futurework} an outlook on future work is presented. 
+\section{Result}
+\label{result}
+The question on the best tools always depends on the environment that is used. Often a monitoring structure is already existing and new solutions have to be build around it.
+To answer the question we decided that after the test what we did in our study we can recommend a monitoring stack for a Kubernetes cluster out of the tools we testes. In the test we had the best experience with an combination from Zabbix and Grafana . The installation is very easy and can be done with a single command. There are also different versions of the Zabbix portation. Some of them are more light weighted or have more tools than the others. In terms of functions Zabbix provides nearly everything. To complete this functionality with usability and interoperability we recommend to configure a Grafana instance onto the REST API of Zabbix. This is easily done because Grafana has its own Zabbix plug-in. It provides a very nice dashboard view of the cluster metrics.
+If there is any reason fur not using a Zabbix installation or if a deeper look into the single nodes and pods is required, we could recommend a combination of Heapster with InfluxDB and Grafana. The installation is slightly more complex because all the tools have to be configured to work together. The huge benefit is that all tools are adopted by the Kubernetes Developers to work great with the cluster. This not only allows a very detailed look on every pod that is deployed, but also ensures a good performance, even in small clusters. 
+
 \section{General Trends}
+\label{generaltrends}
 Most of the systems we evaluated or considered evaluating were metric monitoring stacks. In general most of the tools detect not the cause of the failure. Instead the effect is recognized and can be treated manually. Some tools left us with the impression of a trend towards more automation. These tools had functions like automated script triggering over SSH or automatic delivery of logs in the alert message. \\
 \\
 Another trend we saw is that alerting managers implement a massive amount of different services for messaging, like slack or telegram, that are used by modern developer teams. Some of the more prominent tools were also capable of REST or SOAP requests to give the option to implement a lot of different interfaces. To keep an overview over a cascading failure, some of the tools can group errors to one alert, thus minimizing the number of alerts.
@@ -14,15 +23,8 @@ The field of collectors drifts towards multi functional interfaces. This trend i
 
 When we installed and tested the tools, all of the above trends were reflected. That is how we identified and worked out the trends. 
 
-
-%With a more deeper look in the logging monitoring tools some more trends of the different tool types could be found and identified. 
-\section{Conclusion}
-At the beginning of this paper we asked the question which monitoring tools are the best. Obviously there is no clear answer to this question. It always depends on the environment that is used, often some monitoring structure is already given and new solutions have to be build around them.\\
-To answer the question anyway we decided to recommend an combination from Zabbix and Grafana for Kubernetes monitoring. The installation is very easy and can be done with a single command. There are also different versions of the Zabbix portation. Some of them are more lightweighted or have more tools than the others. In terms of functions Zabbix provides nearly everything. To complete this functionality with usability and interoperability we recommend to configure a Grafana instance onto the REST API of Zabbix. This is easily done because Grafana has its own Zabbix plug-in. It provides a very nice dashboard view of the cluster metrics.\\
-\\
-If there is any reason fur not using a Zabbix installation or if a deeper look into the single nodes and pods is required, we could recommend a combination of Heapster with InfluxDB and Grafana. The installation is slightly more complex because all the tools have to be configured to work together. The huge benefit is that all tools are adopted by the Kubernetes Developers to work great with the cluster. This not only allows a very detailed look on every pod that is deployed, but also ensures a good performance, even in small clusters. 
-
 \section{Future Work}
-As a follow up to our work a deeper look into the field of log monitoring tools could provide a more efficient way of failure treatment. An important task is to look where micro service environments like Kubernetes or technology like docker store their logs. To get the best results from the logs, a good database with the capability of adapting to the quickly changing services is needed. We think a clear mapping of the logs to the services informations is a main quest of the work.\\
+\label{futurework}
+As a follow up to our work a deeper look into the field of log monitoring tools could provide a more efficient way of failure treatment. An important task is to look where micro service environments like Kubernetes or technology like docker store their logs. To get the best results from the logs, a good database with the capability of adapting to the quickly changing services is needed. We think a clear mapping of the logs to the services informations is a main quest of the work.
 As we only looked at solutions that are open-source, there is the possibility to expand our work to the whole software market to take more tools into account. This work could discuss the question of benefits that open source has over paid tools for the new DevOps style of developing.
 

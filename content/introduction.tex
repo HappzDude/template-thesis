@@ -2,11 +2,10 @@
 
 \chapter{Introduction}
 Nowadays it is very common in IT to have distributed systems in locations all over the globe\cite{1687567}. To provide the best user experience for the System administrators, it is important to monitor these networks by a few people sitting in remote locations. New approaches even try to automate the whole system so that it repairs itself. Important for the user in these systems is the availability and reliability of the system. 
-\\
 To tackle these tasks, Application Performance Management (APM) tools were build. They are available in a wide range of costs and qualities. They differ a lot in their architecture, features and style of approach to a problem. This is why we decided to make a comparison of some large Open-Source tool stacks available on the market. 
 \section{Goals}
 The Goal of the study is to print out the benefits and disadvantages of the popular Open-Source tools and stacks for monitoring available on the market. This could be from huge benefit for the new trend of DevOps(\cref{devops}) \cite{Bass:2015:DSA:2810087} . With a good monitoring tool, problems in the short intervals of deployment and testing offered by DevOps, could be identified more efficient. In special monitoring systems that log system internals in database, can be used in the debugging phase of an a agile development.  
-\\ The work wants to illustrate the features and technologies of the tools to make it easier for the reader to get an overview of the different software approaches. In particular the tools will be tested in their ability to interact with modern cloud technologies like Docker and Kubernetes.\\
+The work wants to illustrate the features and technologies of the tools to make it easier for the reader to get an overview of the different software approaches. In particular the tools will be tested in their ability to interact with modern cloud technologies like Docker and Kubernetes.
 For these technologies, a good control mechanism that is customizable for every user can reduce the time to bug fix and the fear to develop the code.
  Furthermore, we want to take a look, on the ability of the stacks to integrate in existing environments and support of common tools and interfaces. Moreover, the cross compatibility of the stacks will be tested to the possibility of combining different tools in one environment. At the end a of the paper the reader should know which monitoring stack or which stacks are optimal for his or her environment.  
 
@@ -20,10 +19,10 @@ In the first part, the paper describes the general aspects of monitoring and how
 
 \end{description}
 
-\section{Minimum Requirements for the tools}
+\section{Requirements}
 \label{minimumrequire}
-In the process of searching for tool we set some minimum requirements that the tools have to fulfill, because over wise the amount of candidate for the study would be to big. The most important requirement was, that the tools are open-source. Moreover the tools had to be able monitor distributed systems and visualize the data. By the term distributed systems we  mean a micro service architecture. \\
-In case that many of the tools had matched the requirements we defined so nice to have features. We preferred tools that were able to monitor web service over HTTP. Also tools that had an grouping function for alerts or can send the alerts over several interfaces. \\
+In the process of searching for tool we set some minimum requirements that the tools have to fulfill, because over wise the amount of candidate for the study would be to big. The most important requirement was, that the tools are open-source. Moreover the tools had to be able monitor distributed systems and visualize the data. By the term distributed systems we  mean a micro service architecture.
+In case that many of the tools had matched the requirements we defined so nice to have features. We preferred tools that were able to monitor web service over HTTP. Also tools that had an grouping function for alerts or can send the alerts over several interfaces.
 At the end we had look at the following tools that all matched the minimum requirements of our study: TICK \cite{tick}, ELK Stack \cite{elk}, Prometheus \cite{prometheus}, Grafana \cite{grafana} \cite{grafana}, Zabbix\cite{zabbix}, Icinga\cite{icinga}, Cacti \cite{cacti}, OpenNMS \cite{opennms}, Munin \cite{munin}, Hawkular \cite{hawkular}, OpenTSDB \cite{opentsdb}, Zipkin \cite{zipkin}. Of this list we selected the first six tools to take a look on in our study.   
 
 

@@ -27,9 +27,9 @@ Searchlight is a light weighted  port of the famous monitoring tool Icinga. It r
 \section{Prometheus}
 \label{Prometheus} % to refernce in the document
 The tool Prometheus is a open source project and is hosted by the Cloud Native Computing Foundation.
-It is a single tool that comes with the features of a whole monitoring stack (without alerting).\\ Prometheus own collector uses client libraries, supported for different languages including GO, Java, Scala, Python and Ruby and more third-party libraries for various other languages. The collector is able to pull data from the server or cluster and can be accessed via HTTP request.\\
-The project was originally built at Soundcloud \cite{soundcloud} and  is nowadays used by big companies like Jodel \cite{jodel}, Docker and Core OS \cite{prometeus}. \\
-Prometheus also has an alert manager, which is an extra tool to send message including the cluster state via email, HipChat, PagerDuty, Pushover, Slack, OpsGenie and VictorOps. These alerts have to be set up by an configuration file. \\
+It is a single tool that comes with the features of a whole monitoring stack (without alerting).\\ Prometheus own collector uses client libraries, supported for different languages including GO, Java, Scala, Python and Ruby and more third-party libraries for various other languages. The collector is able to pull data from the server or cluster and can be accessed via HTTP request.
+The project was originally built at Soundcloud \cite{soundcloud} and  is nowadays used by big companies like Jodel \cite{jodel}, Docker and Core OS \cite{prometeus}.
+Prometheus also has an alert manager, which is an extra tool to send message including the cluster state via email, HipChat, PagerDuty, Pushover, Slack, OpsGenie and VictorOps. These alerts have to be set up by an configuration file. 
 Because the project is community driven, there is no official repository for Prometeus on Kubernetes, but with a little research we managed to find a repository \cite{prometheus_kube} that provided different deployments for cloud environments.
 
 \subsection{Installation}
@@ -106,7 +106,7 @@ Elasticsearch also offers a tool to include alerts. The tool can send any alerts
 \section{Grafana}
 \label{grafana} % to refernce in the document
 Grafana is a tool to visualize the data collected about a system. It features different graphs, including graphs with changes over time, single stats for live feeds, tables to show multiple data from different sources and heat maps to show the distribution of values over a timespan.
-Grafana also comes with an inbuilt alerting system which allows the user to be notified under specific conditions via E-Mail, Slack, PagerDuty, DingDing / DingTalk, Kafka. The alerting also has a webhook, allowing the user to send his alerts to a custom endpoint via HTTP.
+Grafana also comes with an inbuilt alerting system which allows the user to be notified under specific conditions via E-Mail, Slack, PagerDuty, Kafka. The alerting also has a webhook, allowing the user to send his alerts to a custom endpoint via HTTP.
 The graphs and alerts are setup in the web interface of Grafana which comes with it is own user management. It differentiates between users and administrators and super-administrators. Administrators can be assigned to an organization, allowing different systems to be monitored by one Grafana instance, while still giving the owners of the single system the option to manage their own alerts and graphs.
 Grafana also features a LDAP Authentication to automatically import users and permissions from a user directory.
 \subsection{Installation}

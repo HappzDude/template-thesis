@@ -2,15 +2,18 @@
  
 \chapter{Technical Data}
 \label{chap:ch2}
+In section \ref{generalstack} to section \ref{alerting} we talk about how we grouped the responsibility of the tools in to categories. In section \ref{monitoringenviroment} we describe the environment we tested the tools in. in this section also the technologies what are used for this environment get an brief introduction.
+
 \section{General Stack}
+\label{generalstack}
 To explain a Stack in general, distinguish the difference between monitoring and logging. First, monitoring is running in the background and constantly collects the system data, these data is collected by specific metrics. However logging is only triggered by a definite event or exception.
 With this knowledge it is a easier understanding how to establish a monitoring stack. Therefore 4 different types of tools are needed(\cite{cau37427},Chapter 2).
-First of all one for collect data from the system by specific metrics, the collector. The second type of tool is to store, maintain and querying them, the database. The third type of tool is to visualize the data, the visualization tool. Sometimes an alerting tool is also needed, but this is often integrated in the visualization tool.\\ 
+First of all one for collect data from the system by specific metrics, the collector. The second type of tool is to store, maintain and querying them, the database. The third type of tool is to visualize the data, the visualization tool. Sometimes an alerting tool is also needed, but this is often integrated in the visualization tool.
 Logging stacks have similar architecture, but in this case the Collector does not send metric data to the database. The log files of the whole system are collected in one place. These two types of APM can be done simultaneously.
 
 \section{Collector}
-To get data in a centralized spot a tool is needed to collect the data were it is generated and transport it to the server or provide an interface for the server to collect the data.\\
-We call tools for this purpose collectors. There are collectors for every monitoring purpose. It is very common that a collector provides a general interface like XML or JSON files or can be adapted to variable databases to get a wide spectrum of cases to be applied.\\
+To get data in a centralized spot a tool is needed to collect the data were it is generated and transport it to the server or provide an interface for the server to collect the data.
+We call tools for this purpose collectors. There are collectors for every monitoring purpose. It is very common that a collector provides a general interface like XML or JSON files or can be adapted to variable databases to get a wide spectrum of cases to be applied.
  The monitored metrics dependent on the environment and the collector also has to use other tools that the system provides  to get this special type of metrics. In general the data collected can be split up in system data and application data. All system data are all physical values like CPU load, RAM and hard disc drive usage. These will be provided by cAdvisor (\ref{cadvisor}) in the case of Kubernetes. In the case of monitoring Kubernetes the number of jobs/pods or the number of connection per second/minute will be monitored. These and other data will be provided by the Api-server(\ref{apiserver}) of Kubernetes.
 \subsection{cAdvisor}
 \label{cadvisor}
@@ -20,7 +23,7 @@ Container Advisor (cAdvisor) is a tool for collecting, processing and exporting 
 Api-Server is a tool that provides a RESTful interface and is a front end for the whole Kubernetes Cluster. Over the Api-Server a user is able to interact with all components of the cluster. 
 \section{Database}
 The databases for APM are usually time-series based (\ref{TS-Database}). As every other database it is used to make data persistent and perform request over multiple entities to get new informations about critical values and value changes over a time period.
-Databases can offer two types of data providing methods. Most of the time the database provides a well defined interface which normally provides an authentication method to insert data into the database. Any snapshot then gets a time stamp.\\
+Databases can offer two types of data providing methods. Most of the time the database provides a well defined interface which normally provides an authentication method to insert data into the database. Any snapshot then gets a time stamp.
 The other method is that the database performs a get operation onto an interface provided by the collector. This type of data collection is better for static systems.
 
 \subsection{Time-Series-Database}
@@ -30,14 +33,13 @@ Often they also allow you to merge multiple time-series together and make one da
 Like each other database, time-series-databases can also filter the data. They are also capable of ordering the dataset by values like time.
 
 \section{Visualization} 
-The Visualization tools are used to display the data stored in the databases in a comfortable and organized way. This is realized by plain text or graphs. Graphs have the big advantage to be able to display the value changes over time and can very easily illustrate spikes in the data sets. Furthermore graphs can present the data in more than one way, which makes it easier for people to detect abnormal data spikes.\\
-\\ 
+The Visualization tools are used to display the data stored in the databases in a comfortable and organized way. This is realized by plain text or graphs. Graphs have the big advantage to be able to display the value changes over time and can very easily illustrate spikes in the data sets. Furthermore graphs can present the data in more than one way, which makes it easier for people to detect abnormal data spikes.
 Usually all this information can be accessed via a web interface as this also gives an option for identification. This is especially useful when the data are of high importance.
 Often these tools also implement easy to use interfaces for alerting tools, to set conditions for specific alerts, which can save a lot of time.
 
 \subsection{Graphs}
 As previously mentioned, the data we collected from the cluster must be readout of the database and displayed in a readable fashion. Thus most visualization tools use graphs to display the collected data. 
-Using graphs not only makes the data easy to read, but it also adds the option to scale the data to our needs and preferences. This can be very useful when looking for trends in a bigger time range.\\
+Using graphs not only makes the data easy to read, but it also adds the option to scale the data to our needs and preferences. This can be very useful when looking for trends in a bigger time range.
 It also gives the option of color coding the data, which can be useful to either see dangerous values more quickly, or simply render multiple data streams in one graph to compare them or to see them in comparison to the whole system.
 \subsection{Permission Management}
 Most visualization tools have a web interface in which all the data are displayed. To make sure only authorized people can view the data, these tools usually implement a few permission management methods. 
@@ -46,12 +48,13 @@ These can be ranging from simple login dialogs to viewing permissions of specifi
 Written-out Lightweight Directory Access Protocol is a Network-protocol on a client-server basis. LDAP describes the communication between the client and the LDAP Directory. The data-structure of LDAP is the so-called Directory Information Tree which is organized by one suffix(root) and nodes.  
 
 \section{Alerting}
+\label{alerting}
 To inform the developer about the system, a tool is needed which is able to send warnings about predefined system states.
-The alerting tool gets one or more error codes from the controller that is normally implemented into the database or visualization tool. Some tools combine these codes. The alerting tool then sends a warning or error message to all people involved. Most of the tools can send over multiple platforms. The most common are: E-Mail, SMS, Telegram and Slack. Many tools offer many of the mentioned interfaces and provide an api to integrate other alerting types.\\
-\\
+The alerting tool gets one or more error codes from the controller that is normally implemented into the database or visualization tool. Some tools combine these codes. The alerting tool then sends a warning or error message to all people involved. Most of the tools can send over multiple platforms. The most common are: E-Mail, SMS, Telegram and Slack. Many tools offer many of the mentioned interfaces and provide an api to integrate other alerting types.
 Often the developers don’t want to get just one alert with one message, so some of the alerting tool have the possibility to group alerts. With this feature it is possible to group cascading events that are triggered by one failure. In some cases tools also supply an option to divide all alerts into critical alerts and warnings which can help the user to select the important messages.  
 
 \section{Monitoring environment}
+\label{monitoringenviroment}
 As many monitoring tools are flexible to the environment we chose a specific setting for the tools to monitor cloud skills (Kubernetes). \cite{Vohra2016} 
 \subsection{Docker}
 Docker is an Open-Source software that virtualize Operation Systems (OS) with the concept of containers. That means that the application and the operating system is built in to one file and can be deployed out of that file with the before defined settings. This file is called an image. Docker also provides a collection of pre-built images on their page  \cite{Docker}. The software is as Kubernetes written in Go and under the Apache License.
