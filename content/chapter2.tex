@@ -2,12 +2,12 @@
  
 \chapter{Technical Data}
 \label{chap:ch2}
-In section \ref{generalstack} to section \ref{alerting} we talk about how we grouped the responsibility of the tools in to categories. In section \ref{monitoringenviroment} we describe the environment we tested the tools in. in this section also the technologies what are used for this environment get an brief introduction.
+In section \ref{generalstack} to section \ref{alerting} we talk about how we grouped the responsibility of the tools into categories. In section \ref{monitoringenviroment} we describe the environment we tested the tools in. We also describe the technologies, which we used to build our testing environment
 
 \section{General Stack}
 \label{generalstack}
 To explain a Stack in general, distinguish the difference between monitoring and logging. First, monitoring is running in the background and constantly collects the system data, these data is collected by specific metrics. However logging is only triggered by a definite event or exception.
-With this knowledge it is a easier understanding how to establish a monitoring stack. Therefore 4 different types of tools are needed(\cite{cau37427},Chapter 2).
+With this knowledge it is a easier understanding how to establish a monitoring stack. Therefore 4 different types of tools are needed \cite{cau37427}.
 First of all one for collect data from the system by specific metrics, the collector. The second type of tool is to store, maintain and querying them, the database. The third type of tool is to visualize the data, the visualization tool. Sometimes an alerting tool is also needed, but this is often integrated in the visualization tool.
 Logging stacks have similar architecture, but in this case the Collector does not send metric data to the database. The log files of the whole system are collected in one place. These two types of APM can be done simultaneously.
 
