@@ -71,12 +71,12 @@ The ELK stack is developed by elastic \cite{elasticsearch}.
 The stack is a logging tool which is developed in Java and divided up into three parts. First  logstash and beats with their sub tools like Metricbeat or Heartbeat for collecting. Second Elasticsearch which queries the data and makes them persistent and last Kibana the visualization tool of the stack.
 \subsection{Logstash/Beats}
 Logstash is described as an 
-"server-side data processing pipeline"\cite{elasticsearch}. These piplines are able to process nearly every data (github webhooks, http push/pull, irc, imap ,etc.).
+"server-side data processing pipeline" \cite{elasticsearch}. These piplines are able to process nearly every data (github webhooks, http push/pull, irc, imap ,etc.).
 While collecting the data Logstash already transforms it into data structures for better retrieval.
-Beats is a "single-purpose data shipper"\cite{elasticsearch} and can be understood as a collector.
+Beats is a "single-purpose data shipper" \cite{elasticsearch} and can be understood as a collector.
 \subsection{Elasticsearch}
 \label{Elasticsearch}
-"Elasticsearch is a distributed, RESTful search and analytics engine capable of solving a growing number of use cases"\cite{elasticsearch}.\\ It makes the data persistent in JSON (JavaScript Object Notation) with its own Query Domain Specific Language. Theses files are named shards and can be spread over multiple Servers.
+"Elasticsearch is a distributed, RESTful search and analytics engine capable of solving a growing number of use cases" \cite{elasticsearch}. It makes the data persistent in JSON (JavaScript Object Notation) with its own Query Domain Specific Language. Theses files are named shards and can be spread over multiple Servers.
 \subsection{Kibana}
 Kibana is a browser based open-source visualization plugin. It is under the Apache license and is written in JavaScript. It features a web interface with a user login. This gives the owner the power to control who is using which features. User logins can be either added manually or via LDAP.
 Kibana offers a lot of different graphs including classic line graphs, data tables, area graphs, pie charts and bar graphs.
@@ -140,7 +140,7 @@ By default it supports their own collector Telegraf, but other collectors are su
 To minimize storage consumption data will be down sampled over time. The recent high precision data is stored in the database only for a limited time and then summarized with other data to keep hard-drive usage reasonable. 
 \subsection{Chronograf}
 Chronograf is the Visualization Tool of the TICK Stack by Influxdata. It comes with a web interface to display all the data collected by Telegraf. Data can be visualized in different graph-types including single and stack line graphs, Step-Plot, Single stat and bar graphs. It comes with a lot of pre-configured dashboards for all the applications which are also officially supported by Telegraf, though it is also possible to create your own dashboards or modify the existing ones. 
-Chronograf also features a UI for Influxdatas own alerting tool Kapacitor, which allows the management of both tools in one interface.
+Chronograf also features a UI for Influxdata own alerting tool Kapacitor, which allows the management of both tools in one interface.
 \subsection{Kapacitor}
 Kapacitor is the alerting tool of the TICK Stack by Influxdata. Various alerts can already be defined when using Chronograf with Kapacitor including static thresholds, percentage values and deadman switches. It also supports more complex alert conditions via TICKscripts which have to be defined in Kapacitor directly.
 The alerts it self can then be sent to various endpoints like HipChat, Pagerduty, Pushover, Slack, Telegram and many more. It also supports more simplistic endpoints like file outputs, TCP sockets or HTTP Post.
@@ -151,7 +151,7 @@ The installation of the TICK stack in special Telegraf and Influxdb is very simp
 Only Chronograf provides a web interface for the user. The interface is in blue white combination and contains a lot of black. The menu is located on an left sidebar but there are only symbols. On hover the text appears and shows further informations for navigation. It offers a graphical way to inject alerts into Kibana.
 
 \subsection{Performance}
-In our cluster the TICK stack performed very well which matches the InfluxData guidelines that recommend a dual core CPU and 2 to 4 GB of RAM (see alos \cref{fig:TICK_recommendet}) as minimum and for system with under five queries per second. Due to the Developer TICK can handle up to over 100 queries but then need 4 to 8 times more resources \cite{influx_require}.
+In our cluster the TICK stack performed very well which matches the Influxdata guidelines that recommend a dual core CPU and 2 to 4 GB of RAM (see alos \cref{fig:TICK_recommendet}) as minimum and for system with under five queries per second. Due to the Developer TICK can handle up to over 100 queries but then need 4 to 8 times more resources \cite{influx_require}.
 \begin{figure}
 \centering
 \includegraphics[width=0.35\textwidth]{Bilder/Performance/TICK_recommendet}
