@@ -10,15 +10,15 @@ As the \cref{Icinga} Icinga described, we were not able to find a pure installat
 Searchlight is a tool from the AppsCode Inc. \cite{appscode}, which is a company located in San Leandro, California. 
 Searchlight is as many other monitoring tools written in the programming language Go.
 \\
-When first tried to install Searchlight over the yaml File we received the error from the Kubernetes cluster. There it says the tools is not able to bind the Port 8443. We could not figure out which application is using the port but as we tried to install the application on a fresh cluster it turned out working fine.
+When first tried to install Searchlight over the yaml File we received the error from the Kubernetes cluster. There it says the tool is not able to bind the Port 8443. We could not figure out which application is using the port but as we tried to install the application on a fresh cluster it turned out working fine.
 \subsection{Appearance}
 %\includegraphics[width=1\linewidth]{Bilder/Searchlight_Icinga}\\
-Icinga/Searchlight comes in a  discreet blue/white coloring. On the dashboard which represents the homepage of the application an overview of the implemented alerts is shown. The alerts are colored with green/yellow/red for OK/warning/error, so it is easy to recognize appearing problems.\\
+Icinga/Searchlight comes in a  discreet blue/white coloring. On the dashboard which represents the homepage of the application an overview of the implemented alerts is shown. The alerts are colored with green/yellow/red for ok/warning/error, so it is easy to recognize appearing problems.
  Other functions like history and configurations are located at the sidebar. Information about the monitored host and services are located in an extra row, presented on the right.
 \subsection{Performance}
-In our VM deployment the application has allocated 160MB of RAM under maximum load. The application it self is running very smooth even on low power systems. As we deployed some alerts, we noticed, that it took about 30 seconds to validate the alert and get a first status from the system. Thirty seconds after deployment, the system shows no reaction. But after this time everything worked fine.
+In our VM deployment the application has allocated 160MB of RAM under maximum load. The application itself is running very smooth even on low power systems. As we deployed some alerts, we noticed, that it took about 30 seconds to validate the alert and get a first status from the system. Thirty seconds after deployment, the system shows no reaction. But after this time everything worked fine.
 \subsection{Interoperability}
-On the Github page \cite{searchlight} of the program the developer claims to be able to send notification over email, SMS and chat.
+On the GitHub page \cite{searchlight} of the program the developer claims to be able to send notification over email, SMS and chat.
 In the guide there is no explanation what is meant by the term chat but the tool is able to send notifications to Slack \cite{slack} and Hipchat \cite{hipchat}. Notification over email can be send over SMTP without any third party software. To send SMS, a service like Twilio \cite{twilio} is needed.
 On the page there is no hint that the tool is capable to interact over an interface with other notification than the given. Furthermore the developer gives no interfaces in at all for communication with other applications.
 \subsection{Conclusion}
@@ -37,7 +37,7 @@ We managed to install Prometheus in a way that we were able to get metrics from 
 \subsection{Appearance}%Only for Visual tools
 Prometheus provides a web user interface to present the collected data. It is designed in a very light weighted black and a white combination with some blue accents and only shows the necessary informations. The interface has no function to save the set of graphs that is selected and no option to authenticate, so that the data can be keeped secret. 
 \subsection{Performance}
-The tool is very quickly booted and shows no performance problems on the interface. A look on the stats shows that Prometheus is not very CPU dependent, it oscillates up and down because the collection data peaks as show in \cref{fig:Prometeus_Cpu}.Based on the amount of memory usage,the tool is a little bit more demanding and takes up to 2GB of RAM. The high amount of RAM is allocated over a time from about 24h. 
+The tool is very quickly booted and shows no performance problems on the interface. A look on the stats shows that Prometheus is not very CPU dependent, it oscillates up and down because the collection data peaks as shown in \cref{fig:Prometeus_Cpu}.Based on the amount of memory usage,the tool is a little bit more demanding and takes up to 2GB of RAM. The high amount of RAM is allocated over a period of about 24 hours. 
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{Bilder/Performance/Prometeus_Cpu}
@@ -45,9 +45,9 @@ The tool is very quickly booted and shows no performance problems on the interfa
 \label{fig:Prometeus_Cpu}
 \end{figure}
 \subsection{Interoperability}
-It is highly recommended that Prometheus is used with a graphing and an alerting tool, due to the fact that it is just a collector and time series database with a query engine. In our deployment Graphana is used for both tasks, because it is the recommended tool from the Prometheus web page \cite{prometheus}. Exploiting Prometheus to any other tool is also possible as Prometheus provides the metrics that are collected in plain text over a RESTful interface.
+It is highly recommended that Prometheus is used with a graphing and an alerting tool, due to the fact that it is just a collector and time series database with a query engine. In our deployment Grafana is used for both tasks, because it is the recommended tool from the Prometheus web page \cite{prometheus}. Exploiting Prometheus to any other tool is also possible as Prometheus provides the metrics that are collected in plain text over a RESTful interface.
 \subsection{Conclusion}
-Prometheus is very good as a collector for large Kubernetes Clusters with hundreds or thousands of nodes. What makes it so good is the with-box monitoring approach, which provides way more metrics than a black-box monitoring. These fact can be used to detect problems in the system earlier and in much more detail so that the downtime can be reduced. On the other side Prometheus is not good for presenting this data and to throw alerts in case of failure.
+Prometheus is very good as a collector for large Kubernetes clusters with hundreds or thousands of nodes. What makes it so good is the with-box monitoring approach, which provides way more metrics than a black-box monitoring. These fact can be used to detect problems in the system earlier and in much more detail so that the downtime can be reduced. On the other side Prometheus is not good for presenting this data and to throw alerts in case of failure.
 
 \section{Zabbix}
 \label{Zabbix} % to refernce in the document
@@ -55,7 +55,7 @@ Prometheus is very good as a collector for large Kubernetes Clusters with hundre
 \cite{Hernantes2015}
 The tool Zabbix is an open-source tool and is developed by Zabbix LLC (Limited Liability Company) since 2005 \cite{zabbix}. Zabbix provides an all in one solution which includes an collector, a database, a visualization tool and an alert manager.
 \subsection{Installation}
-There is a repository from monitoringartist \cite{zabbix_kube} that provides diverse yaml files, that map the Zabbix client and server on a cluster structure. The single modules are scalable by the user afterwards in the Cluster. By default 3 copies of the database engine and web user interface are deployed. In the repository are two types of Zabbix deployment. The first we tested uses a load balancer the second one uses the cloud network balancing engine from Google.
+There is a repository from monitoringartist \cite{zabbix_kube} that provides diverse yaml files, that map the Zabbix client and server on a cluster structure. The single modules are scalable by the user afterwards in the cluster. By default 3 copies of the database engine and web user interface are deployed. In the repository are two types of Zabbix deployment. The first we tested uses a load balancer the second one uses the cloud network balancing engine from Google.
 \subsection{Appearance}%Only for Visual tools
 Zabbix come white a white and blue web interface with some red accents. It implements a tab system with sub tabs to navigate through the interface. The naming of the tabs is not as self explaining as it could be.  
 \subsection{Performance}
@@ -68,7 +68,7 @@ Zabbix is one of the best optimized and extended open-source solutions available
 \section{ELK Stack}
 \label{elk} % to refernce in the document
 The ELK stack is developed by elastic \cite{elasticsearch}. 
-The stack is a logging tool which is developed in Java and divided up into three parts. First  logstash and beats with their sub tools like Metricbeat or Heartbeat for collecting. Second Elasticsearch which queries the data and makes them persistent and last Kibana the visualization tool of the stack.
+The stack is a logging tool which is developed in Java and divided up into three parts. First part is logstash and beats with their sub tools like Metricbeat or Heartbeat for collecting. Second part is Elasticsearch which queries the data and makes them persistent and last part is Kibana the visualization tool of the stack.
 \subsection{Logstash/Beats}
 Logstash is described as an 
 "server-side data processing pipeline" \cite{elasticsearch}. These piplines are able to process nearly every data (github webhooks, http push/pull, irc, imap ,etc.).
@@ -76,16 +76,16 @@ While collecting the data Logstash already transforms it into data structures fo
 Beats is a "single-purpose data shipper" \cite{elasticsearch} and can be understood as a collector.
 \subsection{Elasticsearch}
 \label{Elasticsearch}
-"Elasticsearch is a distributed, RESTful search and analytics engine capable of solving a growing number of use cases" \cite{elasticsearch}. It makes the data persistent in JSON (JavaScript Object Notation) with its own Query Domain Specific Language. Theses files are named shards and can be spread over multiple Servers.
+"Elasticsearch is a distributed, RESTful search and analytics engine capable of solving a growing number of use cases" \cite{elasticsearch}. It makes the data persistent in JSON (JavaScript Object Notation) with its own Query Domain Specific Language. These files are named shards and can be spread over multiple servers.
 \subsection{Kibana}
 Kibana is a browser based open-source visualization plugin. It is under the Apache license and is written in JavaScript. It features a web interface with a user login. This gives the owner the power to control who is using which features. User logins can be either added manually or via LDAP.
 Kibana offers a lot of different graphs including classic line graphs, data tables, area graphs, pie charts and bar graphs.
 \subsection{Installation}
 ELK Stack is deployable at the Kubernetes cluster. There is a solution on GitHub provided by Kubernetes. Just the deploy the given yaml-files and the tools are running.but the necessary configuration files are missing.
 \subsection{Appearance}%Only for Visual tools
-Kibana is the only tool in the complete Stack with a user interface. It is accessible over the homepage of the application. The site is starting with a discover page, where all logs are listed in a chronological order. The discover page also allows to filter these logs by key words. Managing tools like dev tools, time, monitoring dashboard, etc can be fownd on the left hand sidebar. The dashboard tab, is for creating an own dashboard with the own preferences.
+Kibana is the only tool in the complete Stack with a user interface. It is accessible over the homepage of the application. The site is starting with a discover page, where all logs are listed in a chronological order. The discover page also allows to filter these logs by key words. Managing tools like dev tools, time, monitoring dashboard, etc can be found on the left hand sidebar. The dashboard tab is for creating an own dashboard with the own preferences.
 \subsection{Performance}
-The tool ELK stack is booting very fast. As seen in \cref{fig:ELK_CPU}, the CPU usage is very high at the start, but when all service have finished starting, the docker has a low CPU usage. In contrast the RAM consumption at the beginning is low, but when it starts collecting log data's the amount of used RAM is growing very fast (\cref{fig:ELK_MEM}). The growth was so big, that our Kubernetes cluster broke after a view days because the server was out of memory.
+The tool ELK stack is booting very fast. As seen in \cref{fig:ELK_CPU}, the CPU usage is very high at the start, but when all service have finished starting, the docker has a low CPU usage. In contrast the RAM consumption at the beginning is low, but when it starts collecting log data the amount of used RAM is growing very fast (\cref{fig:ELK_MEM}). The growth was so big, that our Kubernetes cluster broke after a view days because the server was out of memory.
 \begin{figure}
 	\centering
 	\includegraphics[width=1\linewidth]{Bilder/Performance/ELK_CPU}
@@ -102,11 +102,9 @@ The tool ELK stack is booting very fast. As seen in \cref{fig:ELK_CPU}, the CPU 
 Elasticsearch also offers a tool to include alerts. The tool can send any alerts which you can query with Elasticsearch. On the official website, elastics mentioned they can send the notifications on E-Mail, PagerDuty, Slack and HipChat and it also offers an interface with a webhook-output to integrate any third-party-software for messaging. With this interface it might be easy to include sending alerts with SMS like earlier mentioned the program Twilio(\ref{searchlight}).
 \subsection{Conclusion}
 ELK stack is easy to install but not easy to configure. There is no reference how to properly integrate the tools with each other in Kubernetes. Therefore it is impossible to get the data from Elasticsearch in Kibana, which makes the tool difficult for Kubernetes.
-
-
 \section{Grafana}
 \label{grafana} % to refernce in the document
-Grafana is a tool to visualize data collected about a system. It features different graphs, including graphs with changes over time, single stats for live feeds, tables to show multiple data from different sources and heat maps to show the distribution of values over a timespan.
+Grafana is a tool to visualize data collected about a system. It features different graphs, including graphs that changes over time, single stats for live feeds, tables to show multiple data from different sources and heat maps to show the distribution of values over a timespan.
 Grafana also comes with an inbuilt alerting system which allows the user to be notified under specific conditions via E-Mail, Slack, PagerDuty and Kafka. The alerting also has a webhook, allowing the user to send his alerts to a custom endpoint via HTTP.
 The graphs and alerts are setup in the web interface of Grafana which comes with its own user management. It differentiates between users, administrators and super-administrators. Administrators can be assigned to an organization, allowing different systems to be monitored by one Grafana instance, while still giving the owners of the single system the option to manage their own alerts and graphs.
 Grafana also features a LDAP authentication to automatically import users and permissions from a user directory.
@@ -115,11 +113,11 @@ The installation of Grafana is very simple, because it only runs on a single Doc
 \subsection{Appearance}%Only for Visual tools
 Grafana mainly uses the colors red and orange and comes with a dashboard. Depending on the data source that is selected this changes to a set of graphs which show the information of the data source. Per drag and drop the graphs and text boxes can be freely moved around. 
 \subsection{Performance}
-The performance of Grafana is very good. The tools consumes nearly no CPU and only a few megabytes of RAM as shown in \cref{fig:Grafan_RAM}. The Diagram also shows that the amount of the used resources is constant over time
+The performance of Grafana is very good. The tool consumes nearly no CPU and only a few megabytes of RAM as shown in \cref{fig:Grafan_RAM}. The Diagram also shows that the amount of the used resources is constant over time
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth]{Bilder/Performance/Grafan_RAM}
-\caption{Graphane Ressource use}
+\includegraphics[width=1\textwidth]{Bilder/Performance/Grafan_RAM}
+\caption{Grafana resource use}
 \label{fig:Grafan_RAM}
 \end{figure}
 \subsection{Interoperability}
@@ -130,37 +128,37 @@ Grafana is by far the best and biggest visualization tool on the open-source mar
 
 \section{TICK}
 \label{tick}
-TICK is a Monitoring Stack provided by the InfluxData company and is under MIT License which is a permissive software license.
+TICK is a monitoring Stack provided by the InfluxData company \cite{tick} and is under MIT License which is a permissive software license.
 \subsection{Telegraf}
-Telegraf is the data collector of the TICK stack by Influxdata and is written entirely in GO. It is a lightweight data collector as it needs specific plugins for metrics to be collected. These can be chosen by the user as needed for the system. It has official input plug ins for many servers including Apache, Cassandra, Kubernetes, MySQL.
+Telegraf is the data collector of the TICK stack by InfluxData and is written entirely in GO. It is a lightweight data collector as it needs specific plugins for metrics to be collected. These can be chosen by the user as needed for the system. It has official input plug ins for many servers including Apache, Cassandra, Kubernetes, MySQL.
  This allows the user to send the metrics to almost any endpoint. As with the input plug ins, there is also a broad variety of output plugins including for Influxdatas own InfluxDB, Elasticsearch(\ref{Elasticsearch}) from the ELK Stack and Prometheus(\ref{Prometheus}). It also supports more primitive outputs like writing to file or TCP/UDP Socket.
 \subsection{InfluxDB}
-InfluxDB is the time-series database from the TICK stack by Influxdata. It is written in GO and available as a single binary with no external dependencies. This makes the installation, as either a standalone database or as a Kubernetes pod, simple.
+InfluxDB is the time-series database from the TICK stack by InfluxData. It is written in GO and available as a single binary with no external dependencies. This makes the installation, either as a standalone database or as a Kubernetes pod, simple.
 By default it supports their own collector Telegraf, but other collectors are supported via plug ins. The data can be written with their  HTTP/S API using its own SQL-like query language, InfluxQL, which also gives the option of creating your own interfaces.
 To minimize storage consumption data will be down sampled over time. The recent high precision data is stored in the database only for a limited time and then summarized with other data to keep hard-drive usage reasonable. 
 \subsection{Chronograf}
-Chronograf is the Visualization Tool of the TICK Stack by Influxdata. It comes with a web interface to display all the data collected by Telegraf. Data can be visualized in different graph-types including single and stack line graphs, Step-Plot, Single stat and bar graphs. It comes with a lot of pre-configured dashboards for all the applications which are also officially supported by Telegraf, though it is also possible to create your own dashboards or modify the existing ones. 
-Chronograf also features a UI for Influxdata own alerting tool Kapacitor, which allows the management of both tools in one interface.
+Chronograf is the Visualization Tool of the TICK Stack by InfluxData. It comes with a web interface to display all the data collected by Telegraf. Data can be visualized in different graph-types including single and stack line graphs, Step-Plot, Single stat and bar graphs. It comes with a lot of pre-configured dashboards for all the applications which are also officially supported by Telegraf, though it is also possible to create your own dashboards or modify the existing ones. 
+Chronograf also features a UI for InfluxData own alerting tool Kapacitor, which allows the management of both tools in one interface.
 \subsection{Kapacitor}
-Kapacitor is the alerting tool of the TICK Stack by Influxdata. Various alerts can already be defined when using Chronograf with Kapacitor including static thresholds, percentage values and deadman switches. It also supports more complex alert conditions via TICKscripts which have to be defined in Kapacitor directly.
-The alerts it self can then be sent to various endpoints like HipChat, Pagerduty, Pushover, Slack, Telegram and many more. It also supports more simplistic endpoints like file outputs, TCP sockets or HTTP Post.
+Kapacitor is the alerting tool of the TICK Stack by InfluxData. Various alerts can already be defined when using Chronograf with Kapacitor including static thresholds, percentage values and deadman switches. It also supports more complex alert conditions via TICKscripts which have to be defined in Kapacitor directly.
+The alerts itself can then be sent to various endpoints like HipChat, Pagerduty, Pushover, Slack, Telegram and many more. It also supports more simplistic endpoints like file outputs, TCP sockets or HTTP Post.
 Kapacitor does not feature a web interface as it is meant to be used with Chronograf which already has a UI component for Kapacitor. It can be used without this interface via console inputs.
 \subsection{Installation}
-The installation of the TICK stack in special Telegraf and Influxdb is very simple. A possible portation of the tool is delivered by the developer of Kubernetes in there Github repository Heapster \cite{heapster}. Heapster is used by the stack to collect the monitoring information of the pods in one place.
+The installation of the TICK stack in special Telegraf and Influxdb is very simple. A possible portation of the tool is delivered by the developer of Kubernetes in there GitHub repository Heapster \cite{heapster}. Heapster is used by the stack to collect the monitoring information of the pods in one place.
 \subsection{Appearance}
 Only Chronograf provides a web interface for the user. The interface is in blue white combination and contains a lot of black. The menu is located on an left sidebar but there are only symbols. On hover the text appears and shows further informations for navigation. It offers a graphical way to inject alerts into Kibana.
 
 \subsection{Performance}
-In our cluster the TICK stack performed very well which matches the Influxdata guidelines that recommend a dual core CPU and 2 to 4 GB of RAM (see alos \cref{fig:TICK_recommendet}) as minimum and for system with under five queries per second. Due to the Developer TICK can handle up to over 100 queries but then need 4 to 8 times more resources \cite{influx_require}.
+In our cluster the TICK stack performed very well which matches the InfluxData guidelines that recommend a dual core CPU and 2 to 4 GB of RAM (see alos \cref{fig:TICK_recommendet}) as minimum and for system with under five queries per second. Due to the Developer TICK can handle up to over 100 queries but then need 4 to 8 times more resources \cite{influx_require}.
 \begin{figure}
 \centering
 \includegraphics[width=0.35\textwidth]{Bilder/Performance/TICK_recommendet}
-\caption{Graphane Ressource use}
+\caption{Grafana Ressource use}
 \label{fig:TICK_recommendet}
 \end{figure}
 
 \subsection{Interoperability}
-TICK and in special influxdb can be accessed by many tools. Because TICK stack is very common many tools offer plug-in integrations. In special we tested Grafana because it is recommended by the developer and integrates out of the box. Influx exposes to it not only the physical specs of all nodes, but also the stats collected by Kubernetes to every deployed pod. 
+TICK and in special influxDB can be accessed by many tools. Because TICK stack is very common many tools offer plug-in integrations. In special we tested Grafana because it is recommended by the developer and integrates out of the box. Influx exposes to it not only the physical specs of all nodes, but also the stats collected by Kubernetes to every deployed pod. 
 \subsection{Conclusion}
 The TICK stack is one of the best optimized monitoring solutions for Kubernetes. What makes it special is that information about every running pod instance is collected and can be accessed.
 
@@ -168,13 +166,13 @@ The TICK stack is one of the best optimized monitoring solutions for Kubernetes.
 
 \section{Failed Tools}%Ebenfalls nur ein arbeitstitel
 In the process of developing and evaluating the APM we discovered a bunch of tools that we were not able to install even that they claimed to be optimized to work on Kubernetes .
-In this paragraph all the tools we wanted to include in our report but does not work, are mentioned with a quick description of the failure.
+In this paragraph all the tools we wanted to include in our report but did not work, are listed with a quick description of the failure.
 \subsection{Graphite}
-Graphite is mainly for storing and graphing data and metrics, but brings also tools that are able to collect these metrics from the system. By the developer it self there is no Kubernetes installation provided but there are diverse approaches by third party members to make it runnable on a Cluster. We have tested the Repository from nanit \cite{graphite} to get Graphite running with StatsD \cite{statsd} as a metric collection tool. The Repository does not provide a yaml file by itself to install all the tools. The instruction leads the user to export some variables needed for the installation. After that a deploy command is provided that pulls the docker repository and then installs it with kubectl on the Cluster. As we tried to execute this command an error was thrown, The node replicas were empty, so no further commands are executable. As we were not able to install the tool on multiple Kubernetes Clusters, we installed the tool as on the website advertised on a Ubuntu system directly. With this installation of Graphit a time-series data, a monitoring and alerting tool is included. On the test system the monitoring system gave values that differs from the Linux intern monitoring in values like CPU usage or RAM. As a solution to all this difficulties we decided to not perform further test on the tool.
+Graphite is mainly for storing and graphing data and metrics, but brings also tools that are able to collect these metrics from the system. By the developer himself there is no Kubernetes installation provided but there are diverse approaches by third party members to make it runnable on a Cluster. We have tested the Repository from nanit \cite{graphite} to get Graphite running with StatsD \cite{statsd} as a metric collection tool. The Repository does not provide a yaml file by itself to install all the tools. The instruction leads the user to export some variables needed for the installation. After that a deploy command is provided that pulls the docker repository and then installs it with kubectl on the Cluster. As we tried to execute this command an error was thrown. The node replicas were empty, so no further commands were executable. As we were not able to install the tool on multiple Kubernetes clusters, we installed the tool as on the website advertised on a Ubuntu system directly. With this installation of Graphite a time-series data, a monitoring and alerting tool is included. On the test system the monitoring system gave values that differ from the Linux intern monitoring in values like CPU usage or RAM. As a solution to all this difficulties we decided not to perform further test on this tool.
 
 \subsection{Icinga}
 \label{Icinga}
-Icinga is as ELK-Stack not a monitoring tool. Its made for logging defined requests. The administrator can decide which system to monitor and in what interval the data is pulled.
+Icinga is as ELK-Stack not a monitoring tool. Its made for logging defined requests. The administrator can decide which system to monitor and in what interval the data are pulled.
 Icinga it self only provides three system states instead of exact values. The states are ok,warning and error. The user decides at which point they are triggered.
-As we tried to install Icinga we found out that there was no direct support from Incinga for Kubernetes. As our Study only describes the actual state without trying to add something we decided not to try an compile Icinga into Kuberntes on our own. Later we found out there is a third party Software called searchlight \ref{searchlight} which is provided by Appscode on Github.
+As we tried to install Icinga we found out that there was no direct support from Incinga for Kubernetes. As our study only describes the actual state without trying to add something we decided not to try an compile Icinga into Kuberntes on our own. Later we found out there is a third party software called searchlight \ref{searchlight} which is provided by Appscode on GitHub.
  

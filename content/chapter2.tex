@@ -6,13 +6,13 @@ In section \ref{generalstack} to section \ref{alerting} we talk about how we gro
 
 \section{General Stack}
 \label{generalstack}
-To explain a Stack in general, distinguish the difference between monitoring and logging. First, monitoring is running in the background and constantly collects the system data, these data is collected by specific metrics. However logging is only triggered by a definite event or exception.
-With this knowledge it is a easier understanding how to establish a monitoring stack. Therefore 4 different types of tools are needed \cite{cau37427}.
-First of all one for collect data from the system by specific metrics, the collector. The second type of tool is to store, maintain and querying them, the database. The third type of tool is to visualize the data, the visualization tool. Sometimes an alerting tool is also needed, but this is often integrated in the visualization tool.
+To explain a Stack in general, distinguish the difference between monitoring and logging. First, monitoring is running in the background and constantly collects the system data, these data are collected by specific metrics. However logging is only triggered by a definite event or exception.
+With this knowledge it is an easier understanding how to establish a monitoring stack. Therefore 4 different types of tools are needed \cite{cau37427}.
+First of all one to collect data from the system by specific metrics, the collector. The second type of tool is to store, maintain and query them, the database. The third type of tool is to visualize the data, the visualization tool. Sometimes an alerting tool is also needed, but this is often integrated in the visualization tool.
 Logging stacks have similar architecture, but in this case the Collector does not send metric data to the database. The log files of the whole system are collected in one place. These two types of APM can be done simultaneously.
 
 \section{Collector}
-To get data in a centralized spot a tool is needed to collect the data were it is generated and transport it to the server or provide an interface for the server to collect the data.
+To get data in a centralized spot a tool is needed to collect the data were they are generated and transport them to the server or provide an interface for the server to collect the data.
 We call tools for this purpose collectors. There are collectors for every monitoring purpose. It is very common that a collector provides a general interface like XML or JSON files or can be adapted to variable databases to get a wide spectrum of cases to be applied.
  The monitored metrics dependent on the environment and the collector also has to use other tools that the system provides  to get this special type of metrics. In general the data collected can be split up in system data and application data. All system data are all physical values like CPU load, RAM and hard disc drive usage. These will be provided by cAdvisor (\ref{cadvisor}) in the case of Kubernetes. In the case of monitoring Kubernetes the number of jobs/pods or the number of connection per second/minute will be monitored. These and other data will be provided by the Api-server(\ref{apiserver}) of Kubernetes.
 \subsection{cAdvisor}
